@@ -1,0 +1,32 @@
+
+<div class="msg_one [new]msg_new[/new]" id="bmsg_{mid}">
+
+<div class="msg_pad">
+
+<div class="ava_mini"><a href="/id{user-id}" onClick="Page.Go(this.href); return false"><img src="{ava}" alt="" /></a>
+
+<div><span>{online}</span></div>
+
+</div>
+
+<div class="msg_left_col">
+
+<a href="/id{user-id}" onClick="Page.Go(this.href); return false"><span>{name}</span></a>
+
+<div><small>{date}</small></div>
+
+</div>
+
+<a href="/messages/show/{mid}" onClick="Page.Go(this.href); return false"><div class="msg_right_col"><span>{subj}</span><div>{text}&nbsp;</div><div>{attach}</div></div></a>
+
+<div class="msg_del_link" style="margin-top:-6px;line-height:17px">
+
+<a href="/messages/show/{mid}" onClick="Page.Go(this.href); return false">Ответить</a><span style="color:#45688E;">&nbsp;|&nbsp;</span><a href="/" onClick="messages.delet({mid}, '{folder}'); return false" id="del_text_{mid}">Удалить</a><img src="/images/loading_mini.gif" alt="" id="del_load_{mid}" class="no_display" />
+
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+</div>

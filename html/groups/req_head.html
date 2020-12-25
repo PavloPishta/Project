@@ -1,0 +1,22 @@
+
+<div class="page_side_sample" style="height: 25px;">
+
+<div class="buttonsprofile albumsbuttonsprofile onclic_bottonond" style="height:22px">
+
+<a href="/groups" onClick="Page.Go(this.href); return false;"><div><b>Сообщества</b></div></a>
+
+<div class="onclic_botton"><a href="/groups?act=requests" onClick="Page.Go(this.href); return false;"><div><b>Приглашения в сообщество</b></div></a></div>
+
+<a href="/groups?act=admin" onClick="Page.Go(this.href); return false;"><div><b>Управление сообществами</b></div></a>
+
+<a href="/groups" onClick="groups.createbox(); return false"><div><b>Создать сообщество</b></div></a>
+
+</div>
+
+</div>
+
+<div id="page_rows_summary" class="summary_wrap"><div class="summary">Всего приглашений {user_new_groups}</div></div>
+
+<div id="groups_rows">
+
+{out_error}

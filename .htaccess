@@ -1,0 +1,235 @@
+DirectoryIndex index.php
+
+RewriteEngine On
+
+# Accses in folder
+Options All -Indexes
+
+# Loading Errors
+ErrorDocument 401 /application/doc_bin/401.php
+ErrorDocument 403 /application/doc_bin/403.php
+ErrorDocument 404 /application/doc_bin/404.php
+ErrorDocument 500 /application/doc_bin/500.php
+
+# reg
+	RewriteRule ^reg/(/?)+$ index.php?go=register [L]
+	RewriteRule ^reg([0-9]+)(/?)+$ index.php?reg=$1 [L]
+	RewriteRule ^signup/(/?)+$ index.php?go=signup [L] 
+	RewriteRule ^login(/?)+$ /index.php?go=loginp [L] 
+	RewriteRule ^login/error(/?)+$ /index.php?go=loginp&msg=1 [L] 
+
+# Команда сайта
+
+	RewriteRule ^about(/?)+$ index.php?go=about [L]
+
+# Apps
+	RewriteRule ^apps(/?)+$ index.php?go=apps [L]
+	RewriteRule ^app([0-9]+)(/?)$ index.php?go=apps&act=app&id=$1 [L]
+	RewriteRule ^apps(/?)+$ /index.php?go=apps&act=search [L]
+	RewriteRule ^apps(/?)+$ /index.php?go=apps&act=view [L]
+	RewriteRule ^apps(/?)+$ /index.php?go=apps&act=mydel [L] 
+	RewriteRule ^apps(/?)+$ /index.php?go=apps&act=install [L]
+	RewriteRule ^editapp/create(/?)+$ /index.php?go=editapp&act=create&id=$1 [L]
+	RewriteRule ^editapp/info_([0-9]+)(/?)+$ /index.php?go=editapp&act=info&id=$1 [L]
+	RewriteRule ^editapp/options_([0-9]+)(/?)+$ /index.php?go=editapp&act=options&id=$1 [L]
+	RewriteRule ^editapp/payments_([0-9]+)(/?)+$ /index.php?go=editapp&act=payments&id=$1 [L]
+	RewriteRule ^editapp/admins_([0-9]+)(/?)+$ /index.php?go=editapp&act=admins&id=$1 [L]
+	RewriteRule ^apps/appcenter/category/([0-9]+)(/?)+$ /index.php?go=apps&act=type_cat&category=$1 [L]
+	RewriteRule ^apps/appcenter/category/([0-9]+)&page=([0-9]+)(/?)+$ /index.php?go=apps&act=type_cat&category=$1&page=$2 [L]
+
+	
+# project fm
+    RewriteRule ^project_fm(/?)+$ index.php?go=project_fm [L]
+    RewriteRule ^project_fm/news_all(/?)+$ index.php?go=project_fm&act=news_all [L]
+    RewriteRule ^project_fm&chat_index(/?)+$ index.php?go=project_fm&act=chat_index [L]
+    RewriteRule ^project_fm/afisha_all(/?)+$ index.php?go=project_fm&act=afisha_all [L]
+    RewriteRule ^project_fm/afisha_adds(/?)+$ index.php?go=project_fm&act=afisha_adds [L]
+    RewriteRule ^project_fm/news_adds(/?)+$ index.php?go=project_fm&act=news_adds [L]
+	RewriteRule ^project_fm/news_all/page/([0-9]+)(/?)+$ /index.php?go=project_fm&act=news_all&page=$1 [L]
+	RewriteRule ^project_fm/afisha_fm/page/([0-9]+)(/?)+$ /index.php?go=project_fm&act=afisha_fm&page=$1 [L]
+	RewriteRule ^project_fm/news_wiev_all/id/([0-9]+)(/?)+$ /index.php?go=project_fm&act=news_wiev_all&id=$1 [L]
+	
+# id user
+	RewriteRule ^id([0-9]+)(/?)+$ index.php?go=profile&id=$1 [L]
+	RewriteRule ^id([0-9]+)&news_photo_load(/?)+$ index.php?go=profile&id=$1&news_photo_load=1 [L]
+	
+# editmypage
+
+	RewriteRule ^editmypage(/?)+$ index.php?go=editprofile [L]
+	RewriteRule ^editmypage/contact(/?)+$ index.php?go=editprofile&act=contact [L]
+	RewriteRule ^editmypage/interests(/?)+$ index.php?go=editprofile&act=interests [L]
+	RewriteRule ^editmypage/all(/?)+$ index.php?go=editprofile&act=all [L]
+	
+# albums
+	RewriteRule ^albums/([0-9]+)(/?)+$ index.php?go=albums&uid=$1 [L]
+	RewriteRule ^albums/add/([0-9]+)(/?)+$ index.php?go=albums&act=add&aid=$1 [L]
+	RewriteRule ^albums/view/([0-9]+)(/?)+$ index.php?go=albums&act=view&aid=$1 [L]
+	RewriteRule ^albums/view/([0-9]+)/page/([0-9]+)(/?)+$ index.php?go=albums&act=view&aid=$1&page=$2 [L]
+	RewriteRule ^albums/comments/([0-9]+)(/?)+$ index.php?go=albums&act=all_comments&uid=$1 [L]
+	RewriteRule ^albums/comments/([0-9]+)/page/([0-9]+)(/?)+$ index.php?go=albums&act=all_comments&uid=$1&page=$2 [L]
+	RewriteRule ^albums/view/([0-9]+)/comments/(/?)+$ index.php?go=albums&act=all_comments&aid=$1 [L]
+	RewriteRule ^albums/view/([0-9]+)/comments/page/([0-9]+)(/?)+$ index.php?go=albums&act=all_comments&aid=$1&page=$2 [L]
+	RewriteRule ^albums/editphotos/([0-9]+)(/?)+$ index.php?go=albums&act=edit_pos_photos&aid=$1 [L]
+	RewriteRule ^albums/newphotos(/?)+$ index.php?go=albums&act=new_photos [L]
+	RewriteRule ^albums/newphotos/([0-9]+)(/?)+$ index.php?go=albums&act=new_photos&page=$1 [L]
+	
+# photo
+	RewriteRule ^photo([0-9]+)_([0-9]+)_sec=user_page(/?)+$ index.php?go=profile&id=$1 [L]
+	RewriteRule ^photo([0-9]+)_([0-9]+)_sec=all_comments(/?)+$ index.php?go=albums&act=all_comments&uid=$1 [L]
+	RewriteRule ^photo([0-9]+)_([0-9]+)_sec=wall/fuser=([0-9]+)(/?)+$ index.php?go=profile&id=$3 [L]
+	RewriteRule ^photo([0-9]+)_([0-9]+)_sec=notes/id=([0-9]+)(/?)+$ index.php?go=notes&act=view&note_id=$3 [L]
+	RewriteRule ^photo([0-9]+)_([0-9]+)_sec=news(/?)+$ index.php?go=news [L]
+	RewriteRule ^photo([0-9]+)_([0-9]+)_sec=msg/id=([0-9]+)(/?)+$ index.php?go=messages&act=review&mid=$3 [L]
+	RewriteRule ^photo([0-9]+)_([0-9]+)_([0-9]+)(/?)+$ index.php?go=albums&act=view&aid=$3 [L]
+	RewriteRule ^photo([0-9]+)_([0-9]+)_([0-9]+)_sec=album_comments(/?)+$ index.php?go=albums&act=all_comments&aid=$3 [L]
+	RewriteRule ^photo([0-9]+)_([0-9]+)_([0-9]+)_sec=newphotos(/?)+$ index.php?go=albums&act=new_photos [L]
+
+# friedns
+	RewriteRule ^friedns/send_demand/([0-9]+)(/?)+$ index.php?go=friends&act=send_demand&for_user_id=$1 [L]
+	RewriteRule ^friedns/take/([0-9]+)(/?)+$ index.php?go=friends&act=take&take_user_id=$1 [L]
+	RewriteRule ^friedns/reject/([0-9]+)(/?)+$ index.php?go=friends&act=reject&reject_user_id=$1 [L]
+	RewriteRule ^friends(/?)+$ index.php?go=friends [L]
+	RewriteRule ^friends/([0-9]+)(/?)+$ index.php?go=friends&user_id=$1 [L]
+	RewriteRule ^friends/([0-9]+)/page/([0-9]+)(/?)+$ index.php?go=friends&user_id=$1&page=$2 [L]
+	RewriteRule ^friends/online/([0-9]+)(/?)+$ index.php?go=friends&act=online&user_id=$1 [L]
+	RewriteRule ^friends/online/([0-9]+)/page/([0-9]+)(/?)+$ index.php?go=friends&act=online&user_id=$1&page=$2 [L]
+	RewriteRule ^friends/requests(/?)+$ index.php?go=friends&act=requests [L]
+	RewriteRule ^friends/requests/page/([0-9]+)(/?)+$ index.php?go=friends&act=requests&page=$1 [L]
+	RewriteRule ^friends/common/([0-9]+)(/?)+$ index.php?go=friends&act=common&uid=$1 [L]
+	RewriteRule ^friend/common/([0-0]+)/page/([0-0]+)(/?)+$ index.php?go=friends&act=common&uid=$1&page=$2 [L]
+	
+# fave
+	RewriteRule ^fave(/?)+$ index.php?go=fave [L]
+	RewriteRule ^fave/page/([0-9]+)(/?)+$ index.php?go=fave&page=$1 [L]	
+
+# notes
+	RewriteRule ^notes(/?)+$ index.php?go=notes [L]
+	RewriteRule ^notes/add(/?)+$ index.php?go=notes&act=add [L]
+	RewriteRule ^notes/edit/([0-9]+)(/?)+$ index.php?go=notes&act=edit&note_id=$1 [L]
+	RewriteRule ^notes/view/([0-9]+)(/?)+$ index.php?go=notes&act=view&note_id=$1 [L]
+	RewriteRule ^notes/([0-9]+)(/?)+$ index.php?go=notes&get_user_id=$1 [L]
+	RewriteRule ^notes/([0-9]+)/page/([0-9]+)(/?)+$ index.php?go=notes&get_user_id=$1&page=$2 [L]
+	
+# videos
+	RewriteRule ^videos(/?)+$ index.php?go=videos [L]
+	RewriteRule ^videos/([0-9]+)(/?)+$ index.php?go=videos&get_user_id=$1 [L]
+	RewriteRule ^videos/([0-9]+)/page/([0-9]+)(/?)+$ index.php?go=videos&get_user_id=$1&page=$2 [L]
+	RewriteRule ^videos/([0-9]+)(/?)+$ index.php?go=videos&get_user_id=$1 [L]
+	RewriteRule ^video([0-9]+)_([0-9]+)(/?)+$ index.php?go=videos&get_user_id=$1 [L]
+	RewriteRule ^video([0-9]+)_([0-9]+)_sec=wall/fuser=([0-9]+)(/?)+$ index.php?go=profile&id=$3 [L]
+	RewriteRule ^video([0-9]+)_([0-9]+)_sec=notes/id=([0-9]+)(/?)+$ index.php?go=notes&act=view&note_id=$3 [L]
+	RewriteRule ^video([0-9]+)_([0-9]+)_sec=news(/?)+$ index.php?go=news [L]
+	RewriteRule ^video([0-9]+)_([0-9]+)_sec=msg/id=([0-9]+)(/?)+$ index.php?go=messages&act=review&mid=$3 [L]
+	
+# search
+	RewriteRule ^search/query=(.*)&type=([0-3]+)(/?)+$ index.php?go=search&query=$1&type=$2 [L]
+	
+# news
+	RewriteRule ^news(/?)+$ index.php?go=news [L]
+	RewriteRule ^news/updates(/?)+$ index.php?go=news&type=updates [L]
+	RewriteRule ^news/photos(/?)+$ index.php?go=news&type=photos [L]
+	RewriteRule ^news/videos(/?)+$ index.php?go=news&type=videos [L]
+	RewriteRule ^news/notifications(/?)+$ index.php?go=news&type=notifications [L]
+	
+# messages
+	RewriteRule ^messages(/?)+$ index.php?go=messages [L]
+	RewriteRule ^messages/i(/?)+$ index.php?go=messages&info=1 [L]
+	RewriteRule ^messages/outbox(/?)+$ index.php?go=messages&act=outbox [L]
+	RewriteRule ^messages/show/([0-9]+)(/?)+$ index.php?go=messages&act=review&mid=$1 [L]
+	
+# wall
+	RewriteRule ^wall([0-9]+)(/?)+$ index.php?go=wall&uid=$1&type=page [L]
+	RewriteRule ^wall([0-9]+)/page/([0-9]+)(/?)+$ index.php?go=wall&uid=$1&type=page&page=$2 [L]
+	RewriteRule ^wall([0-9]+)_sec=own(/?)+$ index.php?go=wall&uid=$1&type=own [L]
+	RewriteRule ^wall([0-9]+)_sec=own&page=([0-9]+)(/?)+$ index.php?go=wall&uid=$1&type=own&page=$2 [L]
+	RewriteRule ^wall([0-9]+)_([0-9]+)(/?)+$ index.php?go=wall&uid=$1&rid=$2&type=record [L]
+
+# settings
+	RewriteRule ^settings(/?)+$ index.php?go=settings [L]
+	RewriteRule ^settings/privacy(/?)+$ index.php?go=settings&act=privacy [L]
+	RewriteRule ^settings/blacklist(/?)+$ index.php?go=settings&act=blacklist [L]
+
+# ads
+    RewriteRule ^ads&act=ads_view_my(/?)+$ index.php?go=ads&act=ads_view_my [L]
+	RewriteRule ^ads&act=ads_view_my&page=([0-9]+)(/?)+$ index.php?go=ads&act=ads_view_my&page=$1 [L]
+    RewriteRule ^ads&act=ads_target(/?)+$ index.php?go=ads&act=ads_target [L]
+    RewriteRule ^ads&act=ads(/?)+$ index.php?go=ads&act=ads [L]
+	RewriteRule ^ads&page=([0-9]+)(/?)+$ index.php?go=ads&page=$1 [L]
+    RewriteRule ^ads&act=create_ads(/?)+$ index.php?go=ads&act=create_ads [L]
+
+# Guests
+	RewriteRule ^guests/clear_history(/?)+$ index.php?go=guests&act=clear_history [L]
+	RewriteRule ^guests(/?)+$ index.php?go=guests [L]
+	RewriteRule ^guests/([0-9]+)(/?)+$ index.php?go=guests&user_id=$1 [L]
+	RewriteRule ^guests/([0-9]+)/page/([0-9]+)(/?)+$ index.php?go=guests&user_id=$1&page=$2 [L] 
+
+# support
+	RewriteCond %{QUERY_STRING} ^act=([a-z]+)
+	RewriteRule ^(.*)support $1index.php?go=support [QSA,L]
+
+	RewriteCond %{QUERY_STRING} ^page=([0-9]+)
+	RewriteRule ^(.*)support $1index.php?go=support [QSA,L]
+	RewriteRule ^support(/?)+$ index.php?go=support [L]
+	
+# restore
+	RewriteCond %{QUERY_STRING} ^act=([a-z]+)
+	RewriteRule ^(.*)restore $1index.php?go=restore [QSA,L]
+	RewriteRule ^restore(/?)+$ index.php?go=restore [L]
+	
+# blog
+	RewriteCond %{QUERY_STRING} ^act=([a-z]+)
+	RewriteRule ^(.*)blog $1index.php?go=blog [QSA,L]
+	
+	RewriteCond %{QUERY_STRING} ^id=([0-9]+)
+	RewriteRule ^(.*)blog $1index.php?go=blog [QSA,L]
+	RewriteRule ^blog(/?)+$ index.php?go=blog [L]
+	
+# balans
+	RewriteCond %{QUERY_STRING} ^act=([a-z]+)
+	RewriteRule ^(.*)balance $1index.php?go=balance [QSA,L]
+	RewriteRule ^balance(/?)+$ index.php?go=balance [L]
+
+# gifts
+	RewriteCond %{QUERY_STRING} ^new=([0-9]+)
+	RewriteRule ^(.*)gifts([0-9]+) $1index.php?go=gifts&uid=$2 [QSA,L]
+	
+	RewriteCond %{QUERY_STRING} ^page=([0-9]+)
+	RewriteRule ^(.*)gifts([0-9]+) $1index.php?go=gifts&uid=$2 [QSA,L]
+	
+	RewriteRule ^gifts([0-9]+)(/?)+$ index.php?go=gifts&uid=$1 [L]
+
+# groups
+	RewriteCond %{QUERY_STRING} ^act=([a-z]+)
+	RewriteRule ^(.*)groups $1index.php?go=groups [QSA,L]
+	RewriteCond %{QUERY_STRING} ^page=([0-9]+)
+	RewriteRule ^(.*)groups $1index.php?go=groups [QSA,L]
+	RewriteRule ^groups(/?)+$ index.php?go=groups [L]
+	RewriteRule ^board([0-9]+)/new(/?)+$ index.php?go=board&act=new&id=$1 [L]
+	RewriteRule ^board([0-9]+)(/?)+$ index.php?go=board&act=all&id=$1 [L]
+
+# ���������� -> ��������� �������� -> ����������
+	RewriteCond %{QUERY_STRING} ^act=([a-z]+)
+	RewriteRule ^(.*)forum([0-9]+) $1index.php?go=groups_forum&public_id=$2 [QSA,L]
+	RewriteCond %{QUERY_STRING} ^page=([0-9]+)
+	RewriteRule ^(.*)forum([0-9]+) $1index.php?go=groups_forum&public_id=$2 [QSA,L]
+	RewriteRule ^forum([0-9]+)(/?)+$ index.php?go=groups_forum&public_id=$1 [L]
+	
+# public audio
+	RewriteRule ^public/audio([0-9]+)(/?)+$ index.php?go=public_audio&pid=$1 [L]
+
+# audio
+	RewriteRule ^audio(/?)+$ index.php?go=audio [L]
+	RewriteRule ^audio([0-9]+)(/?)+$ index.php?go=audio&uid=$1 [L]
+
+# docs
+	RewriteRule ^docs(/?)+$ index.php?go=doc&act=list [L]
+	
+# public
+	RewriteCond %{QUERY_STRING} ^act=([a-z]+)
+	RewriteRule ^public([0-9]+)(/?)+$ index.php?go=public&pid=$1 [L]
+	RewriteRule ^public([0-9]+)(/?)+$ index.php?go=public&pid=$1 [L]
+	RewriteRule ^([^.]+)/?$ ?go=alias&url=$1 [L]
+
+# html
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^([^/]+).html$ index.php?go=static&page=$1 [L]

@@ -1,0 +1,84 @@
+[inbox]
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var query = $('#msg_query').val();
+	if(query == 'Поиск по полученным сообщениям')
+		$('#msg_query').css('color', '#c1cad0');
+});
+</script>
+
+<style>.nav{margin-top:10px}</style>
+
+<div id="page_tabs_bar" style="height:26px;">
+
+<div class="page_tabs_active"><a href="/messages" onClick="Page.Go(this.href); return false;"><div>Полученные</div></a></div>
+ 
+<a href="/messages/outbox" onClick="Page.Go(this.href); return false;">Отправленные</a>
+ 
+</div>
+
+<div class="clear"></div>
+
+<div class="msg_search"><input type="text" value="{query}" class="meg_input fl_l" onBlur="if(this.value==''){this.value='Поиск по полученным сообщениям';this.style.color = '#c1cad0';}" onFocus="if(this.value=='Поиск по полученным сообщениям'){this.value='';this.style.color = '#000'}" id="msg_query" maxlength="130" onKeyPress="if(event.keyCode == 13)messages.search();" />
+
+<div class="button_div fl_r"><button onClick="messages.search(); return false">Найти</button></div>
+
+<div class="clear"></div>
+
+</div>
+
+<div id="page_rows_summary" class="summary_wrap"><div class="summary">{msg-cnt}</div></div>
+
+[/inbox]
+
+[outbox]
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var query = $('#msg_query').val();
+	if(query == 'Поиск по отправленным сообщениям')
+		$('#msg_query').css('color', '#c1cad0')
+});
+</script>
+
+<style>.nav{margin-top:10px}</style>
+
+<div id="page_tabs_bar" style="height:26px;">
+
+<a href="/messages" onClick="Page.Go(this.href); return false;">Полученные</a>
+ 
+<div class="page_tabs_active"><a href="/messages/outbox" onClick="Page.Go(this.href); return false;"><div>Отправленные</div></a></div>
+
+</div>
+
+<div class="clear"></div>
+
+<div class="msg_search"><input type="text" value="{query}" class="meg_input fl_l" onblur="if(this.value==''){this.value='Поиск по отправленным сообщениям';this.style.color = '#c1cad0';}" onfocus="if(this.value=='Поиск по отправленным сообщениям'){this.value='';this.style.color = '#000'}" id="msg_query" maxlength="130" onKeyPress="if(event.keyCode == 13)messages.search(1);" />
+
+<div class="button_div fl_r"><button onClick="messages.search(1); return false">Найти</button></div>
+
+<div class="clear"></div>
+
+</div>
+
+<div id="page_rows_summary" class="summary_wrap"><div class="summary">{msg-cnt}</div></div>
+[/outbox]
+
+[review]
+
+<div id="page_tabs_bar" style="height:26px;">
+
+<a href="/messages" onClick="Page.Go(this.href); return false;">Полученные</a>
+
+<a href="/messages/outbox" onClick="Page.Go(this.href); return false;">Отправленные</a>
+
+<div class="page_tabs_active"><a href="/" onClick="Page.Go('/messages/show/{mid}'); return false"><div>Просмотр сообщения</div></a></div>
+
+</div>
+
+<div style="border-bottom: 1px solid #DAE1E8;"></div>
+
+<div id="content">
+
+[/review]

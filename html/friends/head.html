@@ -1,0 +1,88 @@
+
+[all-friends]
+
+<div id="page_tabs_bar" style="height:26px;">
+
+<div class="page_tabs_active"><a href="/friends/{user-id}" onClick="Page.Go(this.href); return false;"><div>Все друзья</div></a></div>
+
+<a href="/friends/online/{user-id}" onClick="Page.Go(this.href); return false;">Друзья на сайте</a>
+
+[not-owner]<a href="/friends/common/{user-id}" onClick="Page.Go(this.href); return false;">Общие друзья</a>[/not-owner]
+
+[owner]<a href="/friends/requests" onClick="Page.Go(this.href); return false;">Заявки в друзья {demands}</a>[/owner]
+
+[not-owner]<a href="/id{user-id}" onClick="Page.Go(this.href); return false;">К странице {name}</a>[/not-owner]
+
+</div>
+
+<div class="clear"></div>
+
+<div style="border-bottom: 1px solid #DAE1E8;"></div>
+
+[/all-friends]
+
+[request-friends]
+
+<div id="page_tabs_bar" style="height:26px;">
+
+<a href="/friends/{user-id}" onClick="Page.Go(this.href); return false;">Все друзья</a>
+
+<a href="/friends/online/{user-id}" onClick="Page.Go(this.href); return false;">Друзья на сайте</a>
+
+[owner]<a href="/friends/common/{user-id}" onClick="Page.Go(this.href); return false;">Общие друзья</a>[/owner]
+
+<div class="page_tabs_active"><a href="/friends/requests" onClick="Page.Go(this.href); return false;"><div>Заявки в друзья {demands}</div></a></div>
+
+</div>
+
+<div class="clear"></div>
+
+<div style="border-bottom: 1px solid #DAE1E8;"></div>
+
+[/request-friends]
+
+
+[general-friends]
+
+<div id="page_tabs_bar" style="height:26px;">
+
+<a href="/friends/{user-id}" onClick="Page.Go(this.href); return false;">Все друзья</a>
+
+<a href="/friends/online/{user-id}" onClick="Page.Go(this.href); return false;">Друзья на сайте</a>
+
+[not-owner]<div class="page_tabs_active"><a href="/friends/common/{user-id}" onClick="Page.Go(this.href); return false;"><div>Общие друзья</div></a></div>[/not-owner]
+
+<a href="/id{user-id}" onClick="Page.Go(this.href); return false;">К странице {name}</a>
+
+</div>
+
+<div class="clear"></div>
+
+<div style="border-bottom: 1px solid #DAE1E8;"></div>
+
+[/general-friends]
+
+
+[online-friends]
+
+<div id="page_tabs_bar" style="height:26px;">
+
+<a href="/friends/{user-id}" onClick="Page.Go(this.href); return false;">Все друзья</a>
+
+<div class="page_tabs_active"><a href="/friends/online/{user-id}" onClick="Page.Go(this.href); return false;"><div>Друзья на сайте</div></a></div>
+
+[not-owner]<a href="/friends/common/{user-id}" onClick="Page.Go(this.href); return false;">Общие друзья</a>[/not-owner]
+
+[owner]<a href="/friends/requests" onClick="Page.Go(this.href); return false;">Заявки в друзья {demands}</a>[/owner]
+
+[not-owner]<a href="/id{user-id}" onClick="Page.Go(this.href); return false;">К странице {name}</a>[/not-owner]
+
+</div>
+
+<div class="clear"></div>
+
+<div style="border-bottom: 1px solid #DAE1E8;"></div>
+
+[/online-friends]
+
+<div id="friends_rows">

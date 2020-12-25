@@ -1,0 +1,771 @@
+<script type="text/javascript">
+
+[news_photo_load-reg]Profile.LoadPhoto();[/news_photo_load-reg]
+
+var startResizeCss = false;
+var user_id = '{user-id}';
+$(document).ready(function(){
+	$(window).scroll(function(){
+		if($('#type_page').val() == 'profile'){
+			if($(document).height() - $(window).height() <= $(window).scrollTop()+($(document).height()/2-250)){
+				wall.page(user_id);
+			}
+			if($(window).scrollTop() < $('#fortoAutoSizeStyleProfile').offset().top){
+				startResizeCss = false;
+				$('#addStyleClass').remove();
+			}
+			if($(window).scrollTop() > $('#fortoAutoSizeStyleProfile').offset().top && !startResizeCss){
+				startResizeCss = true;
+				$('body').append('<div id="addStyleClass"><style type="text/css" media="all">.wallresize{width:656px;margin-left:-210px}.newmes, .newmesnobg{background:whiteSmoke;padding:8px;border-top:0px;width:654px;margin-left:-210px}.wall_attach_menu {margin-left: 560px;}.wallrecord{width:670px;margin-left:-210px}.infowalltext_f{font-size:11px}.wall_inpst{width:589px}.str_likes_user_block{margin-left:480px}.wall_fast_opened_form{width:598px;margin-left:-150px}.wall_fast_block{width:592px;margin-left:-150px}.str_wall_all_comm{width:592px;}.player_mini_mbar_wall{width:600px;margin-bottom:0px}#audioForSize{min-width:500px}.wall_rec_autoresize{width:610px}.wall_fast_ava img{width:50px}.wall_fast_ava{width:60px}.wall_fast_comment_text{margin-left:57px}.wall_fast_date{margin-left:0;font-size:11px}.str_wall_all_comm{margin-left:-150px}.size10{font-size:11px}.str_wall_like{color: #95ADC0;padding: 5px 7px;}.wall_delete {background: url("/images/close_a_wall.png") no-repeat;width: 11px;height: 11px;float: right;margin-top: 2px;cursor: pointer;}.wall_tell_all {backgroundurl("/images/transp.png") no-repeat -33px -264px;width: 11px;height: 11px;float: right;margin-top: 2px;margin-left: 6px;opacity: 0.5;}.profile_update_photo img{width: 600px;max-width:600px;max-height:900px}#wall_l_href .wall_upgwi{width: 590px;margin-left: -150px;}</style></div>');
+			}
+		}
+	});
+	music.jPlayerInc();
+	$('#wall_text, .fast_form_width').autoResize();
+	if($('.profile_onefriend_happy').size() > 4) $('#fm_heppy_link').show();
+	});
+$(document).click(function(event){
+	wall.event(event);
+});
+
+$(document).ready(function(){
+    $("ul.tabs").jTabs({content: ".fm_tabs_content", animate: true, effect:"slide"});                       
+});
+
+</script>
+
+{url_img}
+
+<input type="hidden" id="type_page" value="profile" />
+
+<div id="jquery_jplayer"></div>
+
+<div id="addStyleClass"></div>
+
+<input type="hidden" id="teck_id" value="" />
+
+<input type="hidden" id="teck_prefix" value="" />
+
+<input type="hidden" id="typePlay" value="standart" />
+
+<input id="fid" value="{user-id}" type="hidden" />
+
+<!-- PROFILE SIDE TOP -->
+
+<div class="page_side_sample clear_fix">
+
+<div class="fm_profile_info">
+
+[owner]<div class="set_status_bg no_display" id="set_status_bg">
+
+<input type="text" id="status_text" class="status_inp" value="{val-status-text}" style="width: 430px;margin-bottom: 5px;" maxlength="255" onKeyPress="if(event.keyCode == 13)gStatus.set()" />
+
+<div class="fl_l status_text"><span class="no_status_text [status]no_display[/status]">Введите здесь текст Вашего статуса.</span><a href="/" class="yes_status_text [no-status]no_display[/no-status]" onClick="gStatus.set(1); return false">Удалить статус</a></div>
+
+[status]<div class="button_div_gray fl_r status_but margin_left"><button>Отмена</button></div>[/status]
+
+<div class="button_div fl_r status_but"><button id="status_but" onClick="gStatus.set()">Сохранить</button></div>
+
+</div>[/owner]
+
+<div class="facem_title">{name}&nbsp;{lastname}&nbsp;{user_real}<!--{group}--><small class="fl_r" style="font-weight: normal;color:#6D7085;">{online}</small></div>
+
+<div class="status">
+
+<div>
+
+[player-link]<a class="cursor_pointer" onClick="doLoad.js(0); $('#audioPlayer').html(''); player.open(0, 0, {aid});" id="fplayer_pos">[/player-link]
+
+[owner]<a href="/" id="new_status" onClick="gStatus.open(); return false">[/owner]
+
+[blacklist]{status-text}[/blacklist]
+
+[owner]</a>[/owner]
+
+[player-link]</a>[/player-link]
+
+</div>
+
+[owner]<span id="tellBlockPos"></span>
+
+<div class="status_tell_friends no_display">
+
+<div class="status_str"></div>
+
+<div class="html_checkbox" id="tell_friends" onClick="myhtml.checkbox(this.id); gStatus.startTell()">На обсуждение!</div>
+
+</div>[/owner]
+
+[owner]<a href="#" onClick="gStatus.open(); return false" id="status_link" [status]class="no_display"[/status]>установить статус</a>[/owner]
+
+</div>
+
+<ul class="tabs">  
+
+<li class="active"><a href="#">Информация</a></li>&nbsp;
+
+[photo-count]
+
+<li><a href="#">Альбомы&nbsp;{albums-num}</a></li>&nbsp;
+
+[/photo-count]
+
+[gifts]
+
+<li><a href="#">Подарки&nbsp;{gifts_num}</a></li>&nbsp;
+
+[/gifts]
+
+[privacy-guests][guests]
+
+<li><a href="#">Посетителей&nbsp;{guests-num}</a></li>&nbsp;
+
+[/guests][/privacy-guests]
+
+</ul>
+
+</div>
+
+</div>
+
+<!-- START PROFILE CONTENT -->
+
+<div id="profile_start">
+
+<!-- PROFILE LEFT CONTENT -->
+
+<div class="fm_profile_left fl_l">
+
+[owner]
+
+<div id="owner_photo_wrap">
+
+<div id="owner_photo_top_bubble_wrap">
+
+<div id="owner_photo_top_bubble">
+
+<div class="owner_photo_bubble_delete_wrap" onClick="Profile.DelPhoto(); $('.profileMenu').hide(); return false;">
+
+<div class="owner_photo_bubble_delete"></div>
+
+</div>
+
+</div>
+
+</div>
+
+[/owner]
+
+<span id="ava" class="cursor_pointer" onclick="Photo.Profile('{user-id}', '{user-ph}'); return false"><img src="{ava}" alt="" id="ava_{user-id}" /></span>
+
+[owner]
+
+<div id="owner_photo_bubble_wrap">
+
+<div id="owner_photo_bubble">
+
+<div id="owner_photo_bubble"><div class="owner_photo_bubble_action owner_photo_bubble_action_update" onClick="Profile.LoadPhoto(); $('.profileMenu').hide(); return false;">
+
+<span class="owner_photo_bubble_action_in">Загрузить фотографию</span>
+
+</div><div class="owner_photo_bubble_action owner_photo_bubble_action_crop" onClick="Profile.miniature(); return false;">
+
+<span class="owner_photo_bubble_action_in">Изменить миниатюру</span>
+
+</div></div>
+
+</div>
+
+</div>
+
+</div>
+
+[/owner]
+
+[not-owner]
+
+<div style="position: relative;margin-top: 10px;">
+
+<a class="fm_img_border" href="/" onClick="gifts.box('{user-id}'); return false"><img width="16" onmouseover="myhtml.title('100', 'Подарить подарок', 'newBBlock1')" id="newBBlock1100" src="/images/icon/gift_nav.png"></a>
+
+[no-friends][blacklist]<a class="fm_img_border" href="/" onClick="friends.add({user-id}); return false"><img width="16" onmouseover="myhtml.title('101', 'Добавить в друзья', 'newBBlock1')" id="newBBlock1101" src="/images/icon/frends_nav.png"></a>[/blacklist][/no-friends]
+
+[yes-friends]<a class="fm_img_border" href="/" onClick="friends.delet({user-id}, 1); return false"><img width="16" onmouseover="myhtml.title('102', 'Убрать из друзей', 'newBBlock1')" id="newBBlock1102" src="/images/icon/frends_nav_no.png"></a>[/yes-friends]
+
+[no-blacklist]<a class="fm_img_border" href="/" onClick="settings.addblacklist({user-id}); return false" id="addblacklist_but"><span id="text_add_blacklist"><img onmouseover="myhtml.title('103', 'Заблокировать пользователя', 'newBBlock1')" id="newBBlock1103"  width="16" src="/images/icon/power.png"></span><img src="/images/loading_mini.gif" alt="" id="addblacklist_load" class="loady no_display" /></a>[/no-blacklist]
+
+[yes-blacklist]<a class="fm_img_border" href="/" onClick="settings.delblacklist({user-id}, 1); return false" id="addblacklist_but"><span id="text_add_blacklist"><img onmouseover="myhtml.title('103', 'Розблокировать пользователя', 'newBBlock1')" id="newBBlock1103" width="16" src="/images/icon/over_navoff.png"></span><img src="/images/loading_mini.gif" alt="" id="addblacklist_load" class="loady no_display" /></a>[/yes-blacklist]
+
+[blacklist][privacy-msg]<a class="fm_img_border" href="/" onClick="messages.new_({user-id}); return false"><img onmouseover="myhtml.title('104', 'Отправить сообщение', 'newBBlock1')" id="newBBlock1104" width="16" src="/images/icon/message_nav.png" /></a>[/privacy-msg][/blacklist]
+
+[blacklist][no-subscription]<a class="fm_img_border" href="/" onClick="subscriptions.add({user-id}); return false" id="lnk_unsubscription"><span id="text_add_subscription"><img onmouseover="myhtml.title('105', 'Подписаться на обновления', 'newBBlock1')" id="newBBlock1105" width="16" src="/images/icon/reload.png" /></span><img src="/images/loading_mini.gif" alt="" id="addsubscription_load" class="loady no_display" style="margin-right:-13px" /></a>[/no-subscription][/blacklist]
+
+[yes-subscription]<a class="fm_img_border" href="/" onClick="subscriptions.del({user-id}); return false" id="lnk_unsubscription"><span id="text_add_subscription"><img onmouseover="myhtml.title('105', 'Отписаться от обновлений', 'newBBlock1')" id="newBBlock1105" width="16" src="/images/icon/power.png" /></span><img src="/images/loading_mini.gif" alt="" id="addsubscription_load" class="loady no_display" style="margin-right:-13px" /></a>[/yes-subscription]
+
+[no-fave]<a class="fm_img_border" href="/" onClick="fave.add({user-id}); return false" id="addfave_but"><span id="text_add_fave"><img onmouseover="myhtml.title('106', 'Добавить в закладки', 'newBBlock1')" id="newBBlock1106" width="16" src="/images/icon/fave_nav.png" /></span><img src="/images/loading_mini.gif" alt="" id="addfave_load" class="loady no_display" /></a>[/no-fave]
+
+[yes-fave]<a class="fm_img_border" href="/" onClick="fave.delet({user-id}); return false" id="addfave_but"><span id="text_add_fave"><img onmouseover="myhtml.title('106', 'Удалить из закладок', 'newBBlock1')" id="newBBlock1106" width="16" src="/images/icon/fave_del.png" /></span><img src="/images/loading_mini.gif" alt="" id="addfave_load" class="loady no_display" /></a>[/yes-fave]
+
+</div>
+
+[/not-owner]
+
+[owner]
+
+<div class="fm_menu_class">
+
+<a class="fm_none_href" onClick="payment.addbox();"><div>Передать голоса<span class="fl_r image_class_anav"><img width="15" src="/images/icon/nav_icon.png" /></span></div></a>
+
+<a class="fm_none_href" onclick="doLoad.data(1); rating.view()"><div>История повышения<span class="fl_r image_class_anav"><img width="15" src="/images/icon/nav_icon.png" /></span></div></a>
+
+</div>
+
+[/owner]
+
+{rating_bar}
+
+<div class="fm_menu_class" style="margin:10px 0 10px 0">
+
+[owner]
+
+<div style="border-bottom: 1px solid #E5E6F0;margin-bottom:5px;"></div>
+
+<a class="fm_none_href" onclick="doLoad.data(1); fon.addbox()"><div>Фоновая картинка<span class="fl_r image_class_anav"><img width="15" src="/images/icon/nav_icon.png" /></span></div></a>
+
+<a href="/editmypage" onClick="Page.Go(this.href); $('.profileMenu').hide(); return false;"><div>Редактировать страницу<span class="fl_r image_class_anav"><img width="15" src="/images/icon/nav_icon.png" /></span></div></a>
+
+[/owner]
+
+</div>
+
+[blacklist]
+
+<div class="leftcbor">
+
+[owner][happy-friends]
+
+<div id="fm_heppy_block">
+
+<div class="fm-block_count">Дни рожденья друзей<span class="profile_happy_hide fl_r"><img src="/images/close_a.png" onClick="HappyFr.HideSess(); return false" /></span></div>
+
+<div id="fm_show_cmin">
+
+всего&nbsp;{happy-friends-num}
+
+</div>
+
+<div class="fm_module_body clear_fix">{happy-friends}</div>
+
+<div class="cursor_pointer no_display" onMouseDown="HappyFr.Show(); return false" id="fm_heppy_link">Показать все</div>
+
+</div>
+
+[/happy-friends][/owner]
+
+[friends]
+
+<div class="fm-block_count">Друзья<span id="fm_all_link" onClick="Page.Go(this.href='/friends/{user-id}'); return false"><b>Все</b></span></div>
+
+<div id="fm_show_cmin">
+
+{friends-num}
+
+</div>
+
+<div class="fm_module_body clear_fix">{friends}</div>
+
+[common-friends]
+
+<div id="fm_show_cmin">Общие друзья&nbsp;{mutual-num}<span id="fm_all_link" class="fm_none_href fl_r" style="color: #C4CDDB;" onClick="Page.Go(this.href='/friends/common/{user-id}'); return false"><b>Все</b></span></div>
+
+<div class="fm_module_body clear_fix">{mutual_friends}</div>
+
+[/common-friends]
+
+[/friends]
+
+[online-friends]
+
+<div class="fm-block_count">Друзья онлайн<span id="fm_all_link" onClick="Page.Go(this.href='/friends/online/{user-id}'); return false"><b>Все</b></span></div>
+
+<div id="fm_show_cmin">
+
+{online-friends-num}
+
+</div>
+
+<div class="fm_module_body clear_fix">{online-friends}</div>
+
+[/online-friends]
+
+[videos]
+
+<div class="fm-block_count">Видеозаписи<span id="fm_all_link" onClick="Page.Go(this.href='/videos/{user-id}'); return false"><b>Все</b></span></div>
+
+<div id="fm_show_cmin">
+
+{videos-num}
+
+</div>
+
+<div class="fm_module_body clear_fix">{videos}</div>
+
+[/videos]
+
+[subscriptions]
+
+<div class="fm-block_count">Интересные люди<span id="fm_all_link" href="/" onClick="subscriptions.all({user-id}, '', {subsc-num}); return false"><b>Все</b></span></div>
+
+<div id="fm_show_cmin">
+
+{subscriptions-num}
+
+</div>
+
+<div class="fm_module_body clear_fix">{subscriptions}</div>
+
+[/subscriptions]
+
+[groups]
+
+<div class="fm-block_count">Интересные страницы<span id="fm_all_link" onClick="groups.all_groups_user('{user-id}')"><b>Все</b></span></div>
+
+<div id="fm_show_cmin">
+
+<span id="groups_num">{groups-num}</span>
+
+</div>
+
+<div class="fm_module_body clear_fix">{groups}</div>
+
+[/groups]
+
+[notes]
+
+<div class="fm-block_count">Заметки<span id="fm_all_link" onClick="Page.Go(this.href='/notes/{user-id}'); return false"><b>Все</b></span></div>
+
+<div id="fm_show_cmin">
+
+{notes-num}
+
+</div>
+
+<div class="fm_module_body clear_fix">{notes}</div>
+
+[/notes]
+
+[docs]
+
+<div class="fm-block_count">Документы<span id="fm_all_link" onClick="Page.Go(this.href='/docs'); return false"><b>Все</b></span></div>
+
+<div id="fm_show_cmin">
+
+всего&nbsp;{docs-num}
+
+</div>
+
+<div class="fm_module_body clear_fix">{docs}</div>
+
+[/docs]
+
+</div>
+
+[/blacklist]
+
+<div class="clear"></div>
+
+<span id="fortoAutoSizeStyleProfile"></span>
+
+</div>
+
+<!-- PROFILE RIGHT CONTENT -->
+
+<div class="profile_right fl_l">
+
+<div class="fm_tabs_content">
+
+<!--// fm tabs //-->
+
+<div>
+
+[not-all-country]<div class="clearfix"><div class="flpodtext">Страна:&nbsp;</div> <div class="flpodinfo"><a href="/?go=search&country={country-id}" onClick="Page.Go(this.href); return false">{country}</a></div></div>[/not-all-country]
+
+[not-all-city]<div class="clearfix"><div class="flpodtext">Город:&nbsp;</div> <div class="flpodinfo"><a href="/?go=search&country={country-id}&city={city-id}" onClick="Page.Go(this.href); return false">{city}</a></div></div>[/not-all-city]
+
+[blacklist][not-all-birthday]<div class="clearfix"><div class="flpodtext">День рождения:&nbsp;</div> <div class="flpodinfo">{birth-day}</div></div>[/not-all-birthday]
+
+[privacy-info][sp]<div class="clearfix"><div class="flpodtext">Семейное положение:&nbsp;</div> <div class="flpodinfo">{sp}</div></div>[/sp][/privacy-info]
+
+<div onClick="Profile.MoreInfo(); return false" id="moreInfoLnk"><div class="fm_infohide_opne" id="moreInfoText">Показать полную информацию</div></div>
+
+<div id="profile_full_info_wrap">
+
+<div id="profile_full_info" class="no_display">
+
+[privacy-info][not-block-contact]<h4>
+
+[owner]<a class="fl_r" href="/editmypage/contact" onClick="Page.Go(this.href); return false;">Редактировать</a>[/owner]
+
+<b>Контактная информация</b>
+
+</h4>
+
+<div class="profile_info">
+
+[not-contact-phone]<div class="clear_fix ">
+
+<div class="label fl_l">Моб. телефон:</div>
+
+<div class="labeled fl_l">{phone}</div>
+
+</div>[/not-contact-phone]
+
+[not-contact-vk]<div class="clear_fix ">
+
+<div class="label fl_l">ВКонтакте:</div>
+
+<div class="labeled fl_l">{vk}</div>
+
+</div>[/not-contact-vk]
+
+[not-contact-od]<div class="clear_fix ">
+
+<div class="label fl_l">Одноклассники:</div>
+
+<div class="labeled fl_l">{od}</div>
+
+</div>[/not-contact-od]
+
+[not-contact-fb]<div class="clear_fix ">
+
+<div class="label fl_l">FaceBook:</div>
+
+<div class="labeled fl_l">{fb}</div>
+
+</div>[/not-contact-fb]
+
+[not-contact-skype]<div class="clear_fix ">
+
+<div class="label fl_l">Skype:</div>
+
+<div class="labeled fl_l"><a href="skype:{skype}">{skype}</a></div>
+
+</div>[/not-contact-skype]
+
+[not-contact-icq]<div class="clear_fix ">
+
+<div class="label fl_l">ICQ:</div>
+
+<div class="labeled fl_l">{icq}</div>
+
+</div>[/not-contact-icq]
+
+[not-contact-site]<div class="clear_fix ">
+
+<div class="label fl_l">Личный сайт:</div>
+
+<div class="labeled fl_l">{site}</div>
+
+</div>[/not-contact-site]
+
+</div>
+
+[/not-block-contact]
+
+<h4>
+
+[owner]<a class="fl_r" href="/editmypage/interests" onClick="Page.Go(this.href); return false;">Редактировать</a>[/owner]
+
+<b>Приватная информация</b>
+
+</h4>{not-block-info}
+
+<div class="profile_info">
+
+[not-info-activity]<div class="clear_fix ">
+
+<div class="label fl_l">Деятельность:</div>
+
+<div class="labeled fl_l">{activity}</div>
+
+</div>[/not-info-activity]
+
+[not-info-interests]<div class="clear_fix ">
+
+<div class="label fl_l">Интересы:</div>
+
+<div class="labeled fl_l">{interests}</div>
+
+</div>[/not-info-interests]
+
+[not-info-music]<div class="clear_fix ">
+
+<div class="label fl_l">Любимая музыка:</div>
+
+<div class="labeled fl_l">{music}</div>
+
+</div>[/not-info-music]
+
+[not-info-kino]<div class="clear_fix ">
+
+<div class="label fl_l">Любимые фильмы:</div>
+
+<div class="labeled fl_l">{kino}</div>
+
+</div>[/not-info-kino]
+
+[not-info-books]<div class="clear_fix ">
+
+<div class="label fl_l">Любимые книги:</div>
+
+<div class="labeled fl_l">{books}</div>
+
+</div>[/not-info-books]
+
+[not-info-games]<div class="clear_fix ">
+
+<div class="label fl_l">Любимые игры:</div>
+
+<div class="labeled fl_l">{games}</div>
+
+</div>[/not-info-games]
+
+[not-info-quote]<div class="clear_fix ">
+
+<div class="label fl_l">Любимые цитаты:</div>
+
+<div class="labeled fl_l">{quote}</div>
+
+</div>[/not-info-quote]
+
+[not-info-myinfo]<div class="clear_fix ">
+
+<div class="label fl_l">О себе:</div>
+
+<div class="labeled fl_l">{myinfo}</div>
+
+</div>[/not-info-myinfo]
+
+</div>
+
+[/privacy-info]
+
+</div>
+
+</div>
+
+[audios]
+
+<div id="jquery_jplayer"></div>
+
+<input type="hidden" id="teck_id" value="1" />
+
+<div class="fm-block_count fm-block_mtop">{audios-num}<span id="fm_all_link" onClick="Page.Go(this.href='/audio{user-id}'); return false"><b>Все</b></span></div>
+
+<div style="padding: 7px 0px;">
+
+{audios}
+
+</div>
+
+[/audios]
+
+<!--// fm tabs end //-->
+
+</div>
+
+<!--// fm tabs //-->
+
+[albums]
+
+<div>
+
+<div class="fm-block_count fm-block_mtop">Новые альбомы<span id="fm_all_link" onClick="Page.Go(this.href='/albums/{user-id}'); return false"><b>Все</b></span></div>
+
+<div id="fm_show_count" style="padding: 10px 10px;">
+
+<div class="clear_fix">
+
+{albums}
+
+</div>
+
+[photo-count]
+
+<div class="fm-blue_tibody">Случайные фото</div>
+
+<div class="clear_fix">
+
+{five-photo}
+
+</div>
+
+[/photo-count]
+
+</div>
+
+</div>
+
+[/albums]
+
+<!--// fm tabs end //-->
+
+<!--// fm tabs //-->
+
+[gifts]
+
+<div>
+
+<div class="fm-block_count fm-block_mtop">{gifts-text}<span id="fm_all_link" onClick="Page.Go(this.href='/gifts{user-id}'); return false"><b>Все</b></span></div>
+
+<div id="fm_show_count" style="padding: 10px 10px;">
+
+<div class="clear_fix">{gifts}</div>
+
+</div>
+
+</div>
+
+[/gifts]
+
+<!--// fm tabs end //-->
+
+<!--// fm tabs //-->
+
+[privacy-guests][guests]
+
+<div>
+
+<a href="/guests/{user-id}" onclick="Page.Go(this.href); return false">
+
+<div class="fm-block_count fm-block_mtop">{guests-num} Посетителей<span id="fm_all_link"><b>Все</b></span></div>
+
+<div id="fm_show_count">
+
+<div class="clear_fix">{guests}</div>
+
+</div>
+
+</a>
+
+</div>
+
+[/guests][/privacy-guests]
+
+</div>
+
+<!--// fm tabs form end //-->
+
+<div class="fm-block_count fm-block_mtop">Стена&nbsp;<span id="wall_rec_num" class="atrib_num">{rec-num}</span><span id="fm_all_link" onClick="Page.Go(this.href='/wall{user-id}'); return false"><b>Все</b></span></div>
+
+[privacy-wall]<div class="newmes" id="wall_tab" style="border-bottom:0px;margin-bottom:-5px">
+
+<input type="hidden" value="[owner]Что у Вас нового?[/owner][not-owner]Написать сообщение...[/not-owner]" id="wall_input_text" />
+
+<input type="text" class="wall_inpst" value="[owner]Что у Вас нового?[/owner][not-owner]Написать сообщение...[/not-owner]" onMouseDown="wall.form_open(); return false" id="wall_input" style="margin:0px" />
+
+<div class="no_display" id="wall_textarea">
+
+<textarea id="wall_text" class="wall_inpst wall_fast_opened_texta" onKeyPress="if(event.keyCode == 13)wall.send();" onKeyUp="wall.CheckLinkText(this.value)" onBlur="wall.CheckLinkText(this.value, 1)"></textarea>
+
+<div id="attach_files" class="margin_top_10 no_display"></div>
+
+<div id="attach_block_lnk" class="no_display clear">
+
+<div class="attach_link_bg">
+
+<div align="center" id="loading_att_lnk"><img src="/images/loading_mini.gif" style="margin-bottom:-2px" /></div>
+
+<img src="" align="left" id="attatch_link_img" class="no_display cursor_pointer" onClick="wall.UrlNextImg()" />
+
+<div id="attatch_link_title"></div>
+
+<div id="attatch_link_descr"></div>
+
+<div class="clear"></div>
+
+</div>
+
+<div class="attach_toolip_but"></div>
+
+<div class="attach_link_block_ic fl_l"></div><div class="attach_link_block_te"><div class="fl_l">Ссылка: <a href="/" id="attatch_link_url" target="_blank"></a></div><img class="fl_l cursor_pointer" style="margin-top:2px;margin-left:5px" src="/images/close_a.png" onMouseOver="myhtml.title('1', 'Не прикреплять', 'attach_lnk_')" id="attach_lnk_1" onClick="wall.RemoveAttachLnk()" /></div>
+
+<input type="hidden" id="attach_lnk_stared" />
+
+<input type="hidden" id="teck_link_attach" />
+
+<span id="urlParseImgs" class="no_display"></span>
+
+</div>
+
+<div class="clear"></div>
+
+<div id="attach_block_vote" class="no_display">
+
+<div class="attach_link_bg">
+
+<div class="texta">Тема опроса:</div><input type="text" id="vote_title" class="inpst" maxlength="80" value="" style="width:255px;margin-left:5px" onKeyUp="$('#attatch_vote_title').text(this.value)" /><div class="mgclr"></div>
+
+<div class="texta">Варианты ответа:<br /><small><span id="addNewAnswer"><a class="cursor_pointer" onClick="Votes.AddInp()">добавить</a></span> | <span id="addDelAnswer">удалить</span></small></div><input type="text" id="vote_answer_1" class="inpst" maxlength="80" value="" style="width:255px;margin-left:5px" /><div class="mgclr"></div>
+
+<div class="texta">&nbsp;</div><input type="text" id="vote_answer_2" class="inpst" maxlength="80" value="" style="width:255px;margin-left:5px" /><div class="mgclr"></div>
+
+<div id="addAnswerInp"></div>
+
+<div class="clear"></div>
+
+</div>
+
+<div class="attach_toolip_but"></div>
+
+<div class="attach_link_block_ic fl_l"></div><div class="attach_link_block_te"><div class="fl_l">Опрос: <a id="attatch_vote_title" style="text-decoration:none;cursor:default"></a></div><img class="fl_l cursor_pointer" style="margin-top:2px;margin-left:5px" src="/images/close_a.png" onMouseOver="myhtml.title('1', 'Не прикреплять', 'attach_vote_')" id="attach_vote_1" onClick="Votes.RemoveForAttach()" /></div>
+
+<input type="hidden" id="answerNum" value="2" />
+
+</div>
+
+<div class="clear"></div>
+
+<input id="vaLattach_files" type="hidden" />
+
+<div class="clear"></div>
+
+<div class="button_div fl_l margin_top_10"><button onClick="wall.send(); return false" id="wall_send">Отправить</button></div>
+
+<div class="wall_attach fl_r" onClick="wall.attach_menu('open', this.id, 'wall_attach_menu')" onMouseOut="wall.attach_menu('close', this.id, 'wall_attach_menu')" id="wall_attach">Прикрепить</div>
+
+<div class="wall_attach_menu no_display" onMouseOver="wall.attach_menu('open', 'wall_attach', 'wall_attach_menu')" onMouseOut="wall.attach_menu('close', 'wall_attach', 'wall_attach_menu')" id="wall_attach_menu">
+
+<div class="wall_attach_icon_smile" id="wall_attach_link" onClick="wall.attach_addsmile()">Смайлик</div>
+
+<div class="wall_attach_icon_photo" id="wall_attach_link" onClick="wall.attach_addphoto()">Фотографию</div>
+
+<div class="wall_attach_icon_video" id="wall_attach_link" onClick="wall.attach_addvideo()">Видеозапись</div>
+
+<div class="wall_attach_icon_audio" id="wall_attach_link" onClick="wall.attach_addaudio()">Аудиозапись</div>
+
+<div class="wall_attach_icon_photo" id="wall_attach_link" onClick="wall.attach_addgraffiti('{user-id}')">Граффити</div>
+
+<div class="wall_attach_icon_doc" id="wall_attach_link" onClick="wall.attach_addDoc()">Документ</div>
+
+<div class="wall_attach_icon_vote" id="wall_attach_link" onClick="$('#attach_block_vote').slideDown('fast');wall.attach_menu('close', 'wall_attach', 'wall_attach_menu');$('#vote_title').focus();$('#vaLattach_files').val($('#vaLattach_files').val()+'vote|start||')">Опрос</div>
+
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+</div>[/privacy-wall]
+
+<div id="wall_records">{records}[no-records]<div class="wall_none" [privacy-wall]style="border-top:0px"[/privacy-wall]>На стене пока нет ни одной записи.</div>[/no-records]</div>
+
+[wall-link]<span id="wall_all_record"></span><div onClick="wall.page('{user-id}'); return false" id="wall_l_href" class="cursor_pointer"><div class="all_comm_bg wall_upgwi" id="wall_link">к предыдущим записям</div></div>[/wall-link][/blacklist]
+
+[not-blacklist]<div class="err_yellow" style="font-weight:normal;margin-top:5px">{name} ограничила доступ к своей странице.</div>[/not-blacklist]
+
+</div>
+
+<div class="clear"></div>
+
+</div>

@@ -1,0 +1,40 @@
+
+<script type="text/javascript" src="/js/albums.photos.js"></script>
+
+<div id="page_tabs_bar">
+
+<a href="/albums/{user-id}" onClick="Page.Go(this.href); return false;">Все альбомы</a>
+
+<a href="/albums/view/{aid}" onClick="Page.Go(this.href); return false;">{album-name}</a>
+
+<div class="page_tabs_active"><a href="/albums/add/{aid}" onClick="Page.Go(this.href); return false;"><div>Добавление фотографий</div></a></div>
+
+<div class="clear"></div>
+
+</div>
+
+<div class="clear"></div>
+
+<div id="page_rows_summary" class="summary_wrap"><div id="r_text" class="summary">Поддерживаемые форматы файлов:  JPG, PNG и GIF.</div><div id="l_text" class="summary" style="display:none;">Загруженные фотографии</div></div>
+
+<div id="albums_rows">
+
+<div class="clear"></div>
+
+<span id="photos"></span>
+
+<div class="clear"></div>
+
+<div class="photos_news_add">
+
+<div class="button_div fl_l"><button id="upload">Выбрать фотографию</button></div>
+
+<div class="button_div_gray fl_l" style="margin-left:10px;"><button onClick="Page.Go('/albums/view/{aid}'); return false;">Просмотр альбома</button></div>
+
+<div class="clear"></div>
+
+</div>
+
+</div>
+
+<input type="hidden" value="{aid}" id="aid" />

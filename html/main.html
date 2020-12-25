@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+
+{header}
+
+<noscript><meta http-equiv="refresh" content="0; URL=/badbrowser.php"></noscript>
+
+<link rel="shortcut icon" href="/images/fav.png" />
+
+<style type="text/css" media="all">html, body{
+font-family:tahoma, arial, verdana, sans-serif, Lucida Sans;
+background: linear-gradient(crimson, gold, yellowgreen, teal, crimson);
+margin:0px;
+padding:0px;
+font-size:11px;
+overflow-x:hidden;
+-moz-background-size:cover;
+-o-background-size:100% auto;
+-webkit-background-size:100% auto;
+-khtml-background-size:cover;
+background-size:cover;
+animation: background 2s infinite alternate;}
+@keyframes background {
+  100% {
+    background-position: 0 200px;
+  }</style>
+
+<link media="screen" href="/css/im_chat.css" type="text/css" rel="stylesheet" />
+
+<link media="screen" href="/css.php?id=compression" type="text/css" rel="stylesheet" />
+
+[not-logged]<script type="text/javascript" src="/js/reg.js"></script>[/not-logged]
+
+{js}
+
+<script type="text/javascript" src="/js/chat.js"></script>
+
+<script type="text/javascript" src="/js/payment.js"></script>
+
+<script type="text/javascript" src="/js/fon.js"></script>
+
+<script type="text/javascript" src="/js/all/jTabs.js"></script>
+
+</head>
+
+<body [logged]onResize="onBodyResize()"[/logged] class="no_display">
+
+<div class="scroll_fix_bg no_display" onMouseDown="myhtml.scrollTop()"><div class="scroll_fix_page_top">Наверх</div></div>
+
+<div id="doLoad"></div>
+
+[not-logged]<script>function boxlogin(){Box.Show('log', 300, 'Вход на сайт', '<form method="POST" action="" id="logform" style="padding:15px"><div class="flLg">Электронный адрес</div><input type="text" name="email" id="log_email" class="inplog" maxlength="50" style="width:257px" /><div class="flLg">Пароль</div><input type="password" name="password" id="log_password" class="inplog" maxlength="50" style="width:257px" /><div style="margin-top:7px" class="button_div"><button name="log_in" id="login_but" style="width:266px">Войти</button></div><div style="margin-top:7px" class="clear"><a href="/restore">Не можете войти?</a></div></form>', 'Отмена');}</script>[/not-logged]
+
+<div id="top_view" class="no_display">
+
+<div class="top_center fm_lost_link">
+
+<a href="/{alias-main}" onclick="Page.Go(this.href); clear_style(); return false;"><div>Моя сторінка</div></a>
+
+<a href="/albums/{my-id}" onclick="Page.Go(this.href); clear_style(); return false;" id="requests_link_new_photos"><div>Альбом</div></a>
+
+<a href="/fave" onclick="Page.Go(this.href); clear_style(); return false;"><div>Закладки</div></a>
+
+<a href="/videos" onclick="Page.Go(this.href); clear_style(); return false;"><div>Відео</div></a>
+
+<a href="/audio" onClick="Page.Go(this.href); clear_style(); return false;"><div>Музика</div></a>
+
+<a href="/notes" onclick="Page.Go(this.href); clear_style(); return false;"><div>Замітки</div></a>
+
+<a id="ims" class="fm_none_href" onclick="im_chat.chatOpen(); clear_style(); return false;"><div>Чат</div></a>
+
+<a href="/apps/" onclick="Page.Go(this.href); clear_style(); return false;"><div>Приложения</div></a>
+
+<a href="/settings" onClick="Page.Go(this.href); clear_style(); return false"><div>Налаштування</div></a>
+
+<div class="clear"></div>
+
+
+</div>
+
+</div>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+<!-- ELEMENT -->
+
+<tr>
+
+<td class="fm-head">
+
+<div class="fm-class_content">
+
+<div class="fm-logo">
+
+[not-logged]<a href="/"><img src="/images/logo2.png" alt="logo"/></a>[/not-logged]
+
+[logged]<a href="/news{news-link}" onclick="Page.Go(this.href); clear_style(); return false;"><img src="/images/logo.png" alt="logo" onClick="Page.Go(this.href); return false;" id="news_link"/></a><span id="new_news">{new-news}</span>[/logged]
+
+</div>
+
+[not-logged]<div class="fm-head-f">Соціальна мережа</div><div class="fl_r fm_myphoto_head"><img width="23" src="/images/no_ava_50.png" /></div>[/not-logged][logged]<div class="fl_r fm_myphoto_head">{myphoto_header}</div>[/logged]
+
+[logged]
+
+
+</div>
+<div class="fm-head-r">
+
+<span class="fm_lost_link-all"><a href="/?go=search" onClick="Page.Go(this.href); clear_style(); return false">Пошук</a></span>
+
+<span class="fm_lost_link-all"><a href="/?go=search&online=1" onClick="Page.Go(this.href); clear_style(); return false">Люди</a></span>
+
+<span class="fm_lost_link-all"><a href="/?go=search&type=4" onClick="Page.Go(this.href); clear_style(); return false">Групи</a></span>
+
+<span class="fm_lost_link-all"><a href="/?go=search&type=2" onClick="Page.Go(this.href); clear_style(); return false">Відео</a></span>
+
+<span class="fm_lost_link-all"><a href="/?act=logout">Вийти</a></span>
+
+
+[/logged]
+
+[not-logged]
+
+<div class="fm-head-r">
+
+<span class="fm_lost_link-all"><a class="cursor_pointer" onclick="boxlogin();">Войти</a></span>
+
+</div>
+
+[/not-logged]
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="fm-eindex"> <!-- ELEMENT -->
+
+<div class="fm-index_format" [not-logged]style="max-width: 700px;"[/not-logged]>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+<tr>
+
+[logged]
+
+<td class="fm-menu">
+
+<ul class="fm-nav">
+
+<li id="nav-page"><a href="/{alias-main}" onclick="Page.Go(this.href); clear_style(); return false;">Моя сторінка</a></li>
+<li id="nav-page"><a href="/friends" onclick="Page.Go(this.href); clear_style(); return false;">Друзі</a></li>
+<li id="nav-page"><a href="/messages" onclick="Page.Go(this.href); clear_style(); return false;">Повідомлення</a></li>
+<li id="nav-photo"><a class="css_load" href="/albums/{my-id}" onclick="Page.Go(this.href); clear_style(); return false;" id="requests_link_new_photos">Альбом</a></li>
+<li id="nav-video"><a href="/videos" onclick="Page.Go(this.href); clear_style(); return false;">Відео</a></li>
+<li id="nav-music"><a href="/audio" onClick="Page.Go(this.href); clear_style(); return false;">Музика</a></li>
+<li id="nav-bookmarks"><a href="/fave" onclick="Page.Go(this.href); clear_style(); return false;">Закладки</a></li>
+<li id="nav-video"><a href="/groups" onclick="Page.Go(this.href); clear_style(); return false;">Групи</a></li>
+<li id="nav-notes"><a href="/notes" onclick="Page.Go(this.href); clear_style(); return false;">Замітки</a></li>
+<li id="nav-dialog"><a id="ims" class="fm_none_href" onclick="im_chat.chatOpen(); return false;">Чат</a></li>
+<li id="nav-apps"><a href="/apps/" onclick="Page.Go(this.href); return false;"><div>Приложения</div></a></li>
+<li class="fm-navAct" id="nav-account"><a href="/settings" onclick="Page.Go(this.href); return false;">Налаштування</a></li>
+
+</ul>
+
+<!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t52.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число просмотров и"+
+" посетителей за 24 часа' "+
+"border='0' width='0' height='31'><\/a>")
+//--></script><!--/LiveInternet-->
+
+<div id="navappeid"><div id="navigator_appen"></div></div>
+
+<div id="ads_no_remove">
+
+<div id="ads_view"></div>
+
+</div>
+
+<!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t52.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число просмотров и"+
+" посетителей за 24 часа' "+
+"border='0' width='0' height='31'><\/a>")
+//--></script><!--/LiveInternet-->
+
+</td>
+
+[/logged]
+
+<td class="fm-content">
+
+<div class="fm_wrap_bar [fm_wrap_bar]no_display[/fm_wrap_bar]" id="fm_wrap_bar" [not-logged]style="border-left: 0;border-right: 0;margin-left: 0;"[/not-logged]>{fm_wrap_bar}</div>
+
+<div id="audioPlayer"></div>
+
+<div class="fm-pages" id="page">
+
+{info}{content}
+
+</div>
+
+</td>
+
+</tr>
+
+</table>
+
+[logged]
+
+<div class="fm-footer">
+
+
+
+
+<a href="/blog" onClick="Page.Go(this.href); clear_style(); return false">Блог</a>
+
+
+<!--AUTHOR--><a href='/id1' target="_blank">Скурський Владислав та Пішта Павло</a><!--/AUTHOR-->
+
+
+
+</div>
+
+[/logged]
+
+</div>
+
+</td>
+
+</tr>
+
+</table>
+
+[logged]
+
+<script type="text/javascript" charset="utf-8">
+
+function upClose(xnid) {
+    $('#event' + xnid).remove();
+    $('#updates').css('height', $('.update_box').size() * 105 + 'px');
+}
+function GoPage(event, p) {
+    var oi = (event.target) ? event.target.id: ((event.srcElement) ? event.srcElement.id: null);
+    if (oi == 'no_ev' || oi == 'update_close' || oi == 'update_close2') return false;
+    else {
+        pattern = new RegExp(/photo[0-9]/i);
+        pattern2 = new RegExp(/video[0-9]/i);
+        if (pattern.test(p)) Photo.Show(p);
+        else if (pattern2.test(p)) {
+            vid = p.replace('/video', '');
+            vid = vid.split('_');
+            videos.show(vid[1], p, location.href);
+        } else Page.Go(p);
+    }
+}
+$(document).ready(function() {
+    setInterval(function() {
+        $.post('/index.php?go=updates',
+        function(d) {
+            row = d.split('|');
+            if (d && row[1]) {
+                if (row[0] == 1) uTitle = 'Новый ответ на стене';
+                else if (row[0] == 2) uTitle = 'Новый комментарий к фотографии';
+                else if (row[0] == 3) uTitle = 'Новый комментарий к видеозаписи';
+                else if (row[0] == 4) uTitle = 'Новый комментарий к заметке';
+                else if (row[0] == 7) uTitle = 'Новый подарок';
+                else if (row[0] == 8) uTitle = 'Новое сообщение';
+                else if (row[0] == 10) uTitle = 'Ваша запись понравилась';
+                else if (row[0] == 11) uTitle = 'Новая заявка';
+                else if (row[0] == 12) uTitle = 'Заявка принята';
+                else if (row[0] == 13) uTitle = 'Оценка к фото';
+                else if (row[0] == 14) uTitle = 'Приглашение в сообщество';
+                else if (row[0] == 15) uTitle = 'Вам начислено голосов';
+                else uTitle = 'Событие';
+				setTimeout('upClose('+row[4]+');', 100000);
+				temp = '<div class="update_box cursor_pointer" id="event' + row[4] + '" ' +row[6]+ ' upClose(' + row[4] + ')"><div class="update_box_margin"><div style="height:19px"><span>' + uTitle + '</span><div class="update_close fl_r no_display" id="update_close" onMouseDown="upClose(' + row[4] + ')"><div class="update_close_ic" id="update_close2"></div></div></div><div class="clear"></div><div class="update_inpad"><a href="/id' + row[2] + '" onClick="Page.Go(this.href); return false"><img src="' + row[5] + '" id="no_ev" /></a><div class="update_data"><a id="no_ev" href="/id' + row[2] + '" onClick="Page.Go(this.href); return false">' + row[1] + '</a><br />' + row[3] + '</div></div><div class="clear"></div></div></div>';
+				$('#updates').html($('#updates').html() + temp);
+                var beepThree = $("#beep-three")[0];
+                document.getElementById("beep-three").volume = 0.7;
+                beepThree.play();
+                if ($('.update_box').size() <= 5) $('#updates').animate({
+                    'height': (105 * $('.update_box').size()) + 'px'
+                });
+                if ($('.update_box').size() > 5) {
+                    evFirst = $('.update_box:first').attr('id');
+                    $('#' + evFirst).animate({
+                        'margin-top': '-105px'
+                    },
+                    400,
+                    function() {
+                        $('#' + evFirst).fadeOut('fast',
+                        function() {
+                            $('#' + evFirst).remove();
+                        });
+                    });
+                }
+            }
+        });
+    },
+    4000);
+});
+
+</script>
+
+[/logged]
+
+<div class="no_display"><audio id="beep-three" controls preload="auto"><source src="/source/update_sound/update.ogg"></source></audio></div>
+
+<div id="updates"></div>
+
+<div class="clear"></div>
+
+</body>
+
+</html>

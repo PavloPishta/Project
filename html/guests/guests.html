@@ -1,0 +1,32 @@
+
+<div class="guest_all width_100" id="friend_{user-id-original}">
+
+<a href="/{user-id}" onClick="Page.Go(this.href); return false"><div class="guest_ava"><img src="{ava}" alt="" id="ava_{user-id-original}" /></div></a>
+
+<div class="fl_l" style="width:350px">
+
+<a href="/{user-id}" onClick="Page.Go(this.href); return false"><b>{name}</b></a>  ({age})<span class="fl_l" style="width:500px"></span>
+
+<div class="friends_clr"></div>
+
+{country}{city}
+
+<div style="margin:5px 0 5px 0;color:#777;word-wrap: break-word;">{guest_status}</div>
+
+<div class="friends_clr"></div><div class="friends_clr"></div>
+
+<span class="online">{online}</span><div class="friends_clr"></div>
+
+</div>
+
+<div class="fm_menu_class fl_r friends_m">
+
+[viewer]<a href="/" onClick="messages.new_({user-id-original}); return false"><div>Написать сообщение</div></a>[/viewer]
+
+<a href="/albums/{user-id-original}" onClick="Page.Go(this.href); return false"><div>Альбомы</div></a>
+
+</div>
+
+</div>
+
+<div class="clear"></div>

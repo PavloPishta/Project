@@ -1,0 +1,39 @@
+<div id="content">
+
+{msg}
+
+<div style="height: 200px">
+
+<div style="padding-left: 265px;margin-top: 20px;">
+
+<form method="POST" action="">
+
+<input placeholder="E-mail" type="text" name="email" style="width:130px;margin-top:10px"  id="log_email" class="inplog" maxlength="50" />
+
+<br />
+
+<input placeholder="Пароль" type="password" name="password" style="width:130px;margin-top:10px"  id="log_password" class="inplog" maxlength="50" />
+
+<br />
+
+<div style="margin:10px 0">
+
+<div class="button_div"><button name="log_in" id="login_but" style="width:138px;height:25px;">Войти</button></div>
+
+<br />
+
+<div class="button_div" style="margin-top:5px;"><button onClick="Page.Go('/signup/'); return false" id="login_but" style="width:138px;height:25px;">Регистрация</button></div>
+
+<div style="margin:10px 22px"><a href="/restore" onClick="Page.Go(this.href); return false">Не удается войти?</a></div>
+
+<div class="clear"></div>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>

@@ -1,0 +1,41 @@
+<div class="page_side_sample" style="height: 25px;">
+
+<div class="buttonsprofile albumsbuttonsprofile onclic_bottonond" style="height:22px">
+
+<a href="/settings" onClick="Page.Go(this.href); return false;"><div><b>Настройки</b></div></a>
+
+<div class="onclic_botton"><a href="/balance" onClick="Page.Go(this.href); return false;"><div><b>Личный счёт</b></div></a></div>
+
+<a href="/balance?act=invited" onClick="Page.Go(this.href); return false;"><div><b>Приглашённые друзья</b></div></a>
+  
+<a href="/balance?act=history" onClick="Page.Go(this.href); return false;"><div><b>История</b></div></a>
+
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+<div id="page_rows_summary" class="summary_wrap"><div class="summary">Состояние личного счёта</div></div>
+
+<div style="background: #F8F9FA;padding: 15px;border-top: 1px solid #E8EBF0;line-height: 35px;min-height: 600px;">
+
+<div style="margin:10px 50px;">
+
+<div class="fm_item_info">
+
+<b>Баллы</b> – уневерсальная денежная еденица социальной сети <b>BagnOStik</b>. За данные <b>баллы</b> можно дарить друзьям подарки, повышать рейтинг, пополнять деньги в любимой игре. <b>Баллы </b>можно получить, учавствуя в официальных конкурсах. Приглашение друга в социальную сеть оценивается в <b>10 баллов</b>. За каждый день посещения сайта вы можете получить <b>1 балл</b>.
+
+</div>
+
+<center><span class="color777">На Вашем счёте:</span>&nbsp;&nbsp; <b>{balance} {text-balance} и {rub} {text-rub}</b></center>
+
+<div class="button_div fl_l" style="line-height:15px;margin-left:205px;margin-top:15px;"><button onClick="doLoad.data(2); payment.box_two();" style="width:161px">Купить баллы</button></div>
+
+<div class="button_div fl_l" style="line-height:15px;margin-left:205px;margin-top:15px;"><button onClick="payment.addbox(); return false;" style="width:161px">Передать баллы</button></div>
+
+<div class="button_div fl_l" style="line-height:15px;margin-left:205px;margin-top:15px;"><button onClick="viiBox.clos('metodbox', 1);payment.mt_invite();" style="width:161px">Пригласить друга</button></div>
+
+<div class="clear"></div>
+
+</div></div>

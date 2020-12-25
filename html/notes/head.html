@@ -1,0 +1,74 @@
+
+[all]
+
+<div id="page_tabs_bar">
+
+<div class="page_tabs_active"><a href="/notes/{user-id}" onClick="Page.Go(this.href); return false;"><div>[owner]Мои заметки[/owner][not-owner]Заметки {name}[/not-owner]</div></a></div>
+
+[owner]<a href="/notes/add" onClick="Page.Go(this.href); return false;">Добавить запись</a>[/owner]
+
+[not-owner]<a href="/id{user-id}" onClick="Page.Go(this.href); return false;">К странице {name}</a>[/not-owner]
+
+</div>
+
+<div class="clear"></div>
+
+<div id="page_rows_summary" class="summary_wrap" style="margin-top:-25px;"><div class="summary"></div></div>
+
+[/all]
+
+[add]
+
+<div id="page_tabs_bar">
+
+<a href="/notes" onClick="Page.Go(this.href); return false;">Мои заметки</a>
+
+<div class="page_tabs_active"><a href="/notes/add" onClick="Page.Go(this.href); return false;"><div>Добавить запись</div></a></div>
+
+</div>
+
+<div class="clear"></div>
+
+<div id="page_rows_summary" class="summary_wrap" style="margin-top:-25px;"><div class="summary"></div></div>
+
+[/add]
+
+[edit]
+
+<div id="page_tabs_bar">
+
+<a href="/notes" onClick="Page.Go(this.href); return false;">Мои заметки</a>
+
+<div class="page_tabs_active"><a href="/notes/edit/{note-id}" onClick="Page.Go(this.href); return false;"><div>Редактирование записи</div></a></div>
+
+<a href="/notes/add" onClick="Page.Go(this.href); return false;">Добавить запись</a>
+
+</div>
+
+<div class="clear"></div>
+
+<div id="page_rows_summary" class="summary_wrap" style="margin-top:-25px;"><div class="summary"></div></div>
+
+[/edit]
+
+[view]
+
+<div id="page_tabs_bar">
+
+<a href="/notes/{user-id}" onClick="Page.Go(this.href); return false;">[owner]Мои заметки[/owner][not-owner]Заметки {name}[/not-owner]</a>
+
+<div class="page_tabs_active"><a href="/notes/view/{note-id}" onClick="Page.Go(this.href); return false;"><div>Просмотр заметки</div></a></div>
+ 
+[not-owner]<a href="/id{user-id}" onClick="Page.Go(this.href); return false;">К странице {name}</a>[/not-owner]
+
+[owner]<a href="/notes/add" onClick="Page.Go(this.href); return false;">Добавить запись</a>[/owner]
+
+</div>
+
+<div class="clear"></div>
+
+<div id="page_rows_summary" class="summary_wrap" style="margin-top:-25px;"><div class="summary"></div></div>
+
+[/view]
+
+<div id="content">

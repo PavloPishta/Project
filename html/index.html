@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BagnOStik</title>
+<script src="/js/all/js_index/jquery.js"></script>
+<link rel="shortcut icon" href="/images/fav.png" />
+<style type="text/css">
+@import url('/css/index.css');
+</style>
+<script type="text/javascript">        
+        var userscount = {cnt};
+        var usersaddMin = 1;
+        var usersaddMax = 2;
+        var usersaddCur = 10;
+        var timerMin = 500;
+        var timerMax = 1500;
+        var timerCur = 100;
+        
+        function updateUsersCount() {
+            timerCur = timerMin + Math.floor(Math.random() * (timerMax - timerMin));
+            usersaddCur = usersaddMin + Math.floor(Math.random() * (usersaddMax - usersaddMin));
+            userscount += usersaddCur;
+            document.getElementById('usersCount').innerHTML = userscount;
+            setTimeout(updateUsersCount, timerCur);      
+        }
+        
+        var iusers=0;
+        
+        function startCounting() {
+            document.getElementById('usersCount').innerHTML = userscount;
+            setTimeout(updateUsersCount, timerCur);
+        }
+</script>
+</head>
+ 
+<body onLoad="startCounting();">
+    <div class="vladmaxi-top">
+        <a href="#" target="_blank">О сайте</a>
+	<a href="#" target="_blank">Вакансии</a>
+        <span class="right">
+        <a href="/signup/"><strong>Регистрация</strong>
+		<a href="/restore"><strong>Забыли пароль?</strong>
+            </a>
+        </span>
+    <div class="clr"></div>
+    </div>
+	
+<div class="div_one">
+
+    <div id="login">
+	<center><img src="images/logo_index.png" alt="Я Приднестровец!"></center>
+<form method="POST" action="">
+<p><span class="fontawesome-user"></span><input type="text" class="fontawesome-user" name="email" value="Электронная почта" onfocus="if (this.value=='Электронная почта') this.value='';" onblur="if (this.value==''){this.value='Электронная почта'}"></input>
+<p><span class="fontawesome-lock"></span><input type="password" class="fontawesome-lock" name="password" value="password" onfocus="if (this.value=='password') this.value='';" onblur="if (this.value==''){this.value='password'}"></input>
+<button name="log_in">ВОЙТИ</button>
+<center><b><p>BagnOStik - создано, чтобы жить!</p></b></center>
+<!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t52.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число просмотров и"+
+" посетителей за 24 часа' "+
+"border='0' width='0' height='31'><\/a>")
+//--></script><!--/LiveInternet-->
+</form>
+</div>
+</body>
+</html>

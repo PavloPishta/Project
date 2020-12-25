@@ -1,0 +1,497 @@
+<script type="text/javascript">
+var startResizeCss = false;
+var user_id = '{id}';
+$(document).ready(function(){
+	$(window).scroll(function(){
+		if($('#type_page').val() == 'groups'){
+			if($(document).height() - $(window).height() <= $(window).scrollTop()+($(document).height()/2-250)){
+				wall.page(user_id);
+			}
+			if($(window).scrollTop() < $('#fortoAutoSizeStyle').offset().top){
+				startResizeCss = false;
+				$('#addStyleClass').remove();
+			}
+			if($(window).scrollTop() > $('#fortoAutoSizeStyle').offset().top && !startResizeCss){
+				startResizeCss = true;
+				$('body').append('<div id="addStyleClass"><style type="text/css" media="all">.wallresize{width:656px;margin-right:-210px}.newmes, .newmesnobg{background:whiteSmoke;padding:8px;border-top:0px;width:654px;margin-right:-210px}.wall_attach_menu {margin-right: 560px;}.wallrecord{width:670px;margin-right:-210px}.infowalltext_f{font-size:11px}.wall_inpst{width:589px}.str_likes_user_block{margin-left:480px}.wall_fast_opened_form{width:598px;margin-right:-150px}.wall_fast_block{width:592px;margin-right:-150px}.str_wall_all_comm{width:592px;}.player_mini_mbar_wall{width:600px;margin-bottom:0px}#audioForSize{min-width:500px}.wall_rec_autoresize{width:610px}.wall_fast_ava img{width:50px}.wall_fast_ava{width:60px}.wall_fast_comment_text{margin-right:57px}.wall_fast_date{margin-right:0;font-size:11px}.str_wall_all_comm{margin-right:-150px}.size10{font-size:11px}.str_wall_like{color: #95ADC0;padding: 5px 7px;}.wall_delete {background: url("/images/close_a_wall.png") no-repeat;width: 11px;height: 11px;float: right;margin-top: 2px;cursor: pointer;}.wall_tell_all {backgroundurl("/images/transp.png") no-repeat -33px -264px;width: 11px;height: 11px;float: right;margin-top: 2px;margin-left: 6px;opacity: 0.5;}.profile_update_photo img{width: 600px;max-width:600px;max-height:900px}</style></div>');
+			}
+		}
+	});
+
+	$('#wall_text, .fast_form_width').autoResize();
+		myhtml.checked(['{settings-comments}', '{settings-discussion}']);
+		music.jPlayerInc();
+		langNumric('langNumricAll', '{audio-num}', 'аудиозапись', 'аудиозаписи', 'аудиозаписей', 'аудиозапись', 'аудиозаписей');
+});
+
+$(document).click(function(event){
+	wall.event(event);
+});
+
+</script>
+
+<div id="jquery_jplayer"></div>
+
+<div id="addStyleClass"></div>
+
+<input type="hidden" id="type_page" value="groups" />
+
+<input type="hidden" id="teck_id" value="" />
+
+<input type="hidden" id="teck_prefix" value="" />
+
+<input type="hidden" id="typePlay" value="standart" />
+
+<input type="hidden" id="public_id" value="{id}" />
+
+<!-- GROUPS RIGHT CONTENT -->
+
+<div id="content">
+
+<div class="fm-groups-block_right fl_r">
+
+<div class="ava" onMouseOver="groups.wall_like_users_five_hide()">
+
+<span id="ava"><img src="{photo}" id="ava" /></span>
+
+[admin]
+
+<div class="fm_menu_class" style="margin: 10px 0;">
+
+<a class="fm_none_href" onClick="groups.loadphoto('{id}'); return false"><div>Изменить фотографию<span class="fl_r image_class_anav"><img width="15" src="/images/icon/nav_icon.png" /></span></div></a>
+
+<div id="del_pho_but" class="{display-ava}"><a class="fm_none_href" onClick="groups.delphoto('{id}'); return false;"><div>Удалить фотографию<span class="fl_r image_class_anav"><img width="15" src="/images/icon/nav_icon.png" /></span></div></a></div>
+
+<a class="fm_none_href" onClick="groups.editform(); return false"><div>Управление страницей<span class="fl_r image_class_anav"><img width="15" src="/images/icon/nav_icon.png" /></span></div></a>
+
+<a class="fm_none_href" onClick="groups.inviteBox('{id}'); return false"><div>Пригласить друзей<span class="fl_r image_class_anav"><img width="15" src="/images/icon/nav_icon.png" /></span></div></a>
+
+</div>
+
+[/admin]
+
+[not-admin]
+
+<div class="facem_groups_subscblock">
+
+<div id="yes" class="{yes}">
+
+<div id="num2">{num-2}</div>
+
+<div style="margin:7px 0 0 0">
+
+<div class="button_div fl_l" style="line-height:15px"><button onClick="groups.login('{id}'); return false" style="width:174px">Подписаться</button></div>
+
+</div>
+
+</div>
+
+<div id="no" class="{no}" style="text-align:center;color: #555;">
+
+Вы подписаны на новости этого сообщества.<br />
+
+<div style="margin:7px 0 0 0">
+
+<div class="button_div fl_l" style="line-height:15px"><button href="/public{id}" onClick="groups.exit2('{id}', '{viewer-id}'); return false" style="width:174px">Отписаться</button></div>
+
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+[/not-admin]
+
+<div class="fm_right_cbor">
+
+<div class="fm-block_count {no-users}">Подписчики<span id="fm_all_link"  onClick="groups.all_people('{id}')"><b>Все</b></span></div>
+
+<div id="fm_show_cmin">
+
+всего&nbsp;{num}
+
+</div>
+
+<div class="fm_module_body clear_fix">{users}</div>
+
+[feedback]
+
+<div id="users_block" class="fm-block_count {no-users}">Контакты[yes][admin]<span id="fm_all_link" onClick="groups.allfeedbacklist('{id}')"><b>ред.</b></span>[/admin][/yes]</div>
+
+[yes]
+
+<div id="fm_show_cmin">
+
+всего&nbsp;{num-feedback}
+
+</div>
+
+[/yes]
+
+<div class="fm_module_body clear_fix">
+
+{feedback-users}
+
+[no]
+
+<div class="line_height color777" align="center">Страницы представителей, номера телефонов, e-mail<br />
+
+<a href="/public{id}" onClick="groups.addcontact('{id}'); return false">Добавить контакты</a>
+
+</div>
+
+[/no]
+
+</div>
+
+[/feedback]
+
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+<div id="fortoAutoSizeStyle"></div>
+
+</div>
+
+<!-- GROUPS LEFT CONTENT -->
+
+<div class="fm-groups-block_left fl_l">
+
+[admin]
+
+<div class="set_status_bg no_display" id="set_status_bg" style="width: 438px;">
+
+<input type="text" id="status_text" class="status_inp" value="{status-text}" style="width:428px;" maxlength="255" onKeyPress="if(event.keyCode == 13)gStatus.set('', 1)" />
+
+<div class="fl_l status_text"><span class="no_status_text [status]no_display[/status]">Введите здесь текст статуса.</span><a href="/" class="yes_status_text [no-status]no_display[/no-status]" onClick="gStatus.set(1, 1); return false">Удалить статус</a></div>
+
+[status]<div class="button_div_gray fl_r status_but margin_left"><button>Отмена</button></div>[/status]
+
+<div class="button_div fl_r status_but"><button id="status_but" onClick="gStatus.set('', 1)">Сохранить</button></div>
+
+</div>
+
+[/admin]
+
+<div class="groups_pub_bordstatus">
+
+<div class="groups_title" id="groups_title">{title}</div>
+
+<div class="status">
+
+<div>[admin]<a href="/" id="new_status" onClick="gStatus.open(); return false">[/admin]{status-text}[admin]</a>[/admin]</div>
+
+[admin]<span id="tellBlockPos"></span>
+
+<div class="status_tell_friends no_display" style="width:215px;margin-top: 0;">
+
+<div class="status_str"></div>
+
+<div class="html_checkbox" id="tell_friends" onClick="myhtml.checkbox(this.id); gStatus.startTellPublic('{id}')">Рассказать подписчикам сообщества</div>
+
+</div>[/admin]
+
+[admin]<a href="#" onClick="gStatus.open(); return false" id="status_link" [status]class="no_display"[/status]>установить статус</a>[/admin]
+
+</div>
+ 
+</div>
+
+<div><div class="flpodtext">Дата создания:</div> <div class="flpodinfo">{date}</div></div>
+
+[web]<div><div class="flpodtext">Веб-сайт:</div> <div class="flpodinfo"><a href="/away.php?url={web}" target="_blank">{web}</a></div></div>[/web]
+
+<div class="{descr-css}" id="descr_display"><div class="flpodtext">Описание:</div> <div class="flpodinfo" id="e_descr">{descr}</div></div>
+
+
+
+<!-- edit groups -->
+
+<div id="facem_groups_editbg_container">
+
+<div class="facem_groups_editbg_container">
+
+[admin]
+
+<div class="facem_groups_editbg fl_r no_display" id="edittab1">
+
+<div class="facem_groups_title">Редактирование страницы</div>
+
+<div class="facem_groups_hr"></div>
+
+<div class="texta_g">Название:</div>
+
+<input type="text" id="title" class="inpst" maxlength="100"  style="width:260px;" value="{title}" />
+
+<div class="mgclr"></div>
+
+<div class="texta_g">Описание:</div>
+
+<textarea id="descr" class="inpst" style="width:260px;height:80px">{edit-descr}</textarea>
+
+<div class="mgclr"></div>
+
+<div class="texta_g">Веб-сайт:</div>
+
+<input type="text" id="web" class="inpst" maxlength="100"  style="width:260px;" value="{web}" />
+
+<div class="mgclr"></div>
+
+<div class="texta_g">Адрес страницы:</div>
+
+<input type="hidden" id="prev_adres_page" class="inpst" maxlength="100"  style="width:260px;" value="{adres}" />
+
+<input type="text" id="adres_page" class="inpst" maxlength="100"  style="width:260px;" value="{adres}" />
+
+<div class="mgclr"></div>
+
+<div class="texta_g">&nbsp;</div>
+
+<div class="html_checkbox" id="comments" onClick="myhtml.checkbox(this.id)" style="margin-bottom:8px">Комментарии включены</div>
+
+<div class="mgclr"></div>
+
+<div class="texta_g">&nbsp;</div>
+
+<div class="html_checkbox" id="discussion" onClick="myhtml.checkbox(this.id)" style="margin-bottom:8px">Обсуждения</div>
+
+<div class="mgclr clear"></div>
+
+<div class="texta">&nbsp;</div>
+
+<a href="/public{id}" onClick="groups.edittab_admin(); return false">Назначить администраторов &raquo;</a>
+
+<div class="mgclr"></div>
+
+<div class="texta_g">&nbsp;</div>
+
+<div class="button_div fl_l"><button onClick="groups.saveinfo('{id}'); return false" id="pubInfoSave">Сохранить</button></div>
+
+<div class="button_div_gray fl_l margin_left"><button onClick="groups.editformClose(); return false">Отмена</button></div>
+
+<div class="mgclr"></div>
+
+</div>
+
+<!-- add amins -->
+
+<div class="facem_groups_editbg fl_r no_display" id="edittab2">
+
+<div class="facem_groups_title">Руководители страницы</div>
+
+<div class="facem_groups_hr"></div>
+
+<input 
+
+type="text" 
+
+placeholder="Введите ссылку на страницу или введите ID страницы пользователя и нажмите Enter" 
+
+class="videos_input" 
+
+style="width:426px"
+
+onKeyPress="if(event.keyCode == 13)groups.addadmin('{id}')"
+
+id="new_admin_id"
+
+/>
+
+<div class="clear"></div>
+
+<div style="width:600px" id="admins_tab">{admins}</div>
+
+<div class="clear"></div>
+
+<div class="button_div fl_l"><button onClick="groups.editform(); return false">Назад</button></div>
+
+</div>
+
+[/admin]
+
+</div>
+
+</div>
+
+<!-- end edit groups -->
+
+<!-- discussion groups -->
+
+[discussion]
+
+<div class="fm-block_count fm-block_mtop">Обсуждения<span id="fm_all_link" onClick="Page.Go(this.href='/forum{id}?act=new'); return false" class="{no}"><b>Новая тема</b></span></div>
+
+<div id="fm_show_cmin"><a href="/forum{id}" onClick="Page.Go(this.href); return false">Тем {forum-num}</a></div>
+
+<div class="groups_discussion">
+
+{thems}
+
+</div>
+
+[/discussion]
+
+<!-- end discussion groups -->
+
+<!-- audios groups -->
+
+[audios]
+
+<div id="users_block" class="fm-block_count fm-block_mtop {no-users}">Аудиозаписи
+
+<span id="fm_all_link" onClick="Page.Go('/public/audio{id}'); return false"><b>все</b></span>
+
+</div>
+
+[yesaudio]
+
+<div id="fm_show_cmin"><span id="langNumric">всего {audio-num}</span></div>
+
+[/yesaudio]
+
+<div style="margin:10px 5px 10px 5px;">
+
+{audios}
+
+[noaudio]<div class="line_height color777" align="center">Композиции или другие аудиоматериалы<br />
+
+<a href="/public/audio{id}" onClick="Page.Go(this.href); return false">Добавить аудиозапись</a></div>[/noaudio]
+
+</div>
+
+[/audios]
+
+<!-- end audios groups -->
+
+<!-- wall groups -->
+
+<div class="fm-block_count fm-block_mtop"><span class="atrib_num">{rec-num}</span></div>
+
+[admin]<div class="newmes" id="wall_tab" style="border-bottom:0px;margin-bottom:-5px">
+
+<input type="hidden" value="Что у Вас нового?" id="wall_input_text" />
+
+<input type="text" class="wall_inpst" value="Что у Вас нового?" onMouseDown="wall.form_open(); return false" id="wall_input" style="margin:0px" />
+
+<div class="no_display" id="wall_textarea">
+
+<textarea id="wall_text" class="wall_inpst wall_fast_opened_texta" style="width:434px"
+
+onKeyUp="wall.CheckLinkText(this.value)"
+
+onBlur="wall.CheckLinkText(this.value, 1)"
+
+onKeyPress="if(event.keyCode == 10 || (event.ctrlKey && event.keyCode == 13)) groups.wall_send('{id}')">
+
+</textarea>
+
+<div id="attach_files" class="margin_top_10 no_display"></div>
+
+<div id="attach_block_lnk" class="no_display clear">
+
+<div class="attach_link_bg">
+
+<div align="center" id="loading_att_lnk"><img src="/images/loading_mini.gif" style="margin-bottom:-2px" /></div>
+
+<img src="" align="left" id="attatch_link_img" class="no_display cursor_pointer" onClick="wall.UrlNextImg()" />
+
+<div id="attatch_link_title"></div>
+
+<div id="attatch_link_descr"></div>
+
+<div class="clear"></div>
+
+</div>
+
+<div class="attach_toolip_but"></div>
+
+<div class="attach_link_block_ic fl_l"></div><div class="attach_link_block_te"><div class="fl_l">Ссылка: <a href="/" id="attatch_link_url" target="_blank"></a></div><img class="fl_l cursor_pointer" style="margin-top:2px;margin-left:5px" src="/images/close_a.png" onMouseOver="myhtml.title('1', 'Не прикреплять', 'attach_lnk_')" id="attach_lnk_1" onClick="wall.RemoveAttachLnk()" /></div>
+
+<input type="hidden" id="attach_lnk_stared" />
+
+<input type="hidden" id="teck_link_attach" />
+
+<span id="urlParseImgs" class="no_display"></span>
+
+</div>
+
+<div class="clear"></div>
+
+<div id="attach_block_vote" class="no_display">
+
+<div class="attach_link_bg">
+
+<div class="texta">Тема опроса:</div><input type="text" id="vote_title" class="inpst" maxlength="80" value="" style="width:255px;margin-left:5px" 
+
+onKeyUp="$('#attatch_vote_title').text(this.value)"
+
+/><div class="mgclr"></div>
+
+<div class="texta">Варианты ответа:<br /><small><span id="addNewAnswer"><a class="cursor_pointer" onClick="Votes.AddInp()">добавить</a></span> | <span id="addDelAnswer">удалить</span></small></div><input type="text" id="vote_answer_1" class="inpst" maxlength="80" value="" style="width:255px;margin-left:5px" /><div class="mgclr"></div>
+
+<div class="texta">&nbsp;</div><input type="text" id="vote_answer_2" class="inpst" maxlength="80" value="" style="width:255px;margin-left:5px" /><div class="mgclr"></div>
+
+<div id="addAnswerInp"></div>
+
+<div class="clear"></div>
+
+</div>
+
+<div class="attach_toolip_but"></div>
+
+<div class="attach_link_block_ic fl_l"></div><div class="attach_link_block_te"><div class="fl_l">Опрос: <a id="attatch_vote_title" style="text-decoration:none;cursor:default"></a></div><img class="fl_l cursor_pointer" style="margin-top:2px;margin-left:5px" src="/images/close_a.png" onMouseOver="myhtml.title('1', 'Не прикреплять', 'attach_vote_')" id="attach_vote_1" onClick="Votes.RemoveForAttach()" /></div>
+
+<input type="hidden" id="answerNum" value="2" />
+
+</div>
+
+<div class="clear"></div>
+
+<input id="vaLattach_files" type="hidden" />
+
+<div class="clear"></div>
+
+<div class="button_div fl_l margin_top_10"><button onClick="groups.wall_send('{id}'); return false" id="wall_send">Отправить</button></div>
+
+<div class="wall_attach fl_r" onClick="wall.attach_menu('open', this.id, 'wall_attach_menu')" onMouseOut="wall.attach_menu('close', this.id, 'wall_attach_menu')" id="wall_attach">Прикрепить</div>
+
+<div class="wall_attach_menu no_display" onMouseOver="wall.attach_menu('open', 'wall_attach', 'wall_attach_menu')" onMouseOut="wall.attach_menu('close', 'wall_attach', 'wall_attach_menu')" id="wall_attach_menu">
+
+<div class="wall_attach_icon_smile" id="wall_attach_link" onClick="wall.attach_addsmile()">Смайлик</div>    
+
+<div class="wall_attach_icon_photo" id="wall_attach_link" onClick="groups.wall_attach_addphoto(0, 0, '{id}')">Фотографию</div>
+
+<div class="wall_attach_icon_video" id="wall_attach_link" onClick="groups.wall_video_add_box()">Видеозапись</div>
+
+<div class="wall_attach_icon_audio" id="wall_attach_link" onClick="wall.attach_addaudio()">Аудиозапись</div>
+
+<div class="wall_attach_icon_doc" id="wall_attach_link" onClick="wall.attach_addDoc()">Документ</div>
+
+<div class="wall_attach_icon_vote" id="wall_attach_link" onClick="$('#attach_block_vote').slideDown('fast');wall.attach_menu('close', 'wall_attach', 'wall_attach_menu');$('#vote_title').focus();$('#vaLattach_files').val($('#vaLattach_files').val()+'vote|start||')">Опрос</div>
+
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+[/admin]
+
+<div id="public_wall_records">{records}</div>
+
+<span class="cursor_pointer {wall-page-display}" onClick="groups.wall_page('{id}'); return false" id="wall_all_records"><div class="str_wall_all_comm" id="load_wall_all_records">к предыдущим записям</div></span>
+
+<input type="hidden" id="page_cnt" value="1" />
+
+</div>
+
+<div class="clear"></div>
+
+</div>

@@ -1,0 +1,197 @@
+<div class="page_side_sample" style="height: 25px;">
+
+<div class="buttonsprofile albumsbuttonsprofile onclic_bottonond" style="height:22px">
+
+<div class="onclic_botton"><a href="/settings" onClick="Page.Go(this.href); return false;"><div><b>Общее</b></div></a></div>
+
+<a href="/settings/privacy" onClick="Page.Go(this.href); return false;"><div><b>Приватность</b></div></a>
+
+<a href="/settings/blacklist" onClick="Page.Go(this.href); return false;"><div><b>Черный список</b></div></a>
+
+<a href="/balance" onClick="Page.Go(this.href); return false;"><div><b>Баланс</b></div></a>
+
+<a href="/editapp/create" onClick="Page.Go(this.href); return false;"><div><b>Загрузить приложение</b></div></a>
+
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+<div id="page_rows_summary" class="summary_wrap"><div class="summary">Общее данные</div></div>
+
+<div style="background: #F8F9FA;padding: 15px;border-top: 1px solid #E8EBF0;line-height: 35px;">
+
+<div class="err_yellow name_errors {code-1}" style="font-weight:normal;margin-top:25px">Код активации из письма с текущего почтового ящика принят. Осталось подтвердить код активации в письме, отправленном на новый почтовый ящик.</div>
+
+<div class="err_yellow name_errors {code-2}" style="font-weight:normal;margin-top:25px">Код активации из письма с нового почтового ящика принят. Осталось подтвердить код активации в письме, отправленном на текущий почтовый ящик.</div>
+
+<div class="err_yellow name_errors {code-3}" style="font-weight:normal;margin-top:25px">Адрес Вашей электронной почты был успешно изменен на новый.</div>
+
+<div style="margin:10px 110px;">
+
+<table border="0" cellspacing="0" cellpadding="0">
+
+<tbody>
+
+<div class="allbar_title">Изменить пароль</div>
+
+<div class="err_red no_display pass_errors" id="err_pass_1" style="font-weight:normal;">Пароль не изменён, так как прежний пароль введён неправильно.</div>
+
+<div class="err_red no_display pass_errors" id="err_pass_2" style="font-weight:normal;">Пароль не изменён, так как новый пароль повторен неправильно.</div>
+
+<div class="err_yellow no_display pass_errors" id="ok_pass" style="font-weight:normal;">Пароль успешно изменён.</div>
+
+<tr style="vertical-align: baseline;">
+
+<td style="width:150px;margin:0;color: #888;">Старый пароль:</td><td style="width:200px;"><input type="password" id="old_pass" class="fm_inpst_big" maxlength="100" style="width:150px;" /><span id="validOldpass"></span><div class="mgclr"></div></td>
+
+</tr>
+
+<tr style="vertical-align: baseline;">
+
+<td style="width:150px;margin:0;color: #888;">Новый пароль:</td><td style="width:200px;"><input type="password" id="new_pass" class="fm_inpst_big" maxlength="100" style="width:150px;" onMouseOver="myhtml.title('', 'Пароль должен быть не менее 6 символов в длину', 'new_pass')" /><span id="validNewpass"></span><div class="mgclr"></div></td>
+
+</tr>
+
+<tr style="vertical-align: baseline;">
+
+<td style="width:150px;margin:0;color: #888;">Повторите пароль:</td><td style="width:200px;"><input type="password" id="new_pass2" class="fm_inpst_big" maxlength="100" style="width:150px;" onMouseOver="myhtml.title('', 'Введите еще раз новый пароль', 'new_pass2')" /><span id="validNewpass2"></span><div class="mgclr"></div></td>
+
+</tr>
+
+<tr style="vertical-align: baseline;">
+
+<td style="width:150px;margin:0;color: #888;"></td><td style="width:200px;"><div class="button_div fl_l"><button onClick="settings.saveNewPwd(); return false" id="saveNewPwd">Изменить пароль</button></div><div class="mgclr"></div></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="margin_top_10"></div>
+
+<table border="0" cellspacing="0" cellpadding="0">
+
+<tbody>
+
+<div class="allbar_title">Адрес персональной страницы</div>
+
+<div class="err_yellow no_display name_errors" id="ok_alias" style="font-weight:normal;">Адрес вашей страницы был успешно установлен.</div>
+
+<div class="err_red no_display name_errors" id="err_alias_str" style="font-weight:normal;">Недопустимый адрес.</div>
+
+<div class="err_red no_display name_errors" id="err_alias_name" style="font-weight:normal;">Адрес уже занят.</div>
+
+<div class="fm_item_info">Вы можете установить удобный для вас адрес персональной страницы. Адрес должен быть не менее 5 символов, свободен и состоять из букв латинского алфавита. Например <font style="color:#555">www.ipmr.xhc.ru<b>/shevchuk</b></font></div>
+
+<tr style="vertical-align: baseline;">
+
+<td style="width:150px;margin:0;color: #888;">Личный адрес:</td><td style="width:200px;"><input type="text" id="alias" class="fm_inpst_big" maxlength="50"  style="width:150px;" value="{alias}" /><div class="mgclr"></div></td>
+
+</tr>
+
+<tr style="vertical-align: baseline;">
+
+<td style="width:150px;margin:0;color: #888;"></td><td style="width:200px;"><div class="button_div fl_l"><button onClick="settings.savealias(); return false" id="saveAlias">Сохранить</button></div><div class="mgclr"></div></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="margin_top_10"></div>
+
+<table border="0" cellspacing="0" cellpadding="0">
+
+<tbody>
+
+<div class="allbar_title">Изменить имя</div>
+
+<div class="err_red no_display name_errors" id="err_name_1" style="font-weight:normal;">Специальные символы и пробелы запрещены.</div>
+
+<div class="err_yellow no_display name_errors" id="ok_name" style="font-weight:normal;">Изменения успешно сохранены.</div>
+
+<tr style="vertical-align: baseline;">
+
+<td style="width:150px;margin:0;color: #888;">Ваше имя:</td><td style="width:200px;"><input type="text" id="name" class="fm_inpst_big" maxlength="100"  style="width:150px;" value="{name}" /><span id="validName"></span><div class="mgclr"></div></td>
+
+</tr>
+
+<tr style="vertical-align: baseline;">
+
+<td style="width:150px;margin:0;color: #888;">Ваша фамилия:</td><td style="width:200px;"><input type="text" id="lastname" class="fm_inpst_big" maxlength="100"  style="width:150px;" value="{lastname}" /><span id="validLastname"></span><div class="mgclr"></div></td>
+
+</tr>
+
+<tr style="vertical-align: baseline;">
+
+<td style="width:150px;margin:0;color: #888;"></td><td style="width:200px;"><div class="button_div fl_l"><button onClick="settings.saveNewName(); return false" id="saveNewName">Изменить имя</button></div><div class="mgclr"></div></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="margin_top_10"></div>
+
+<table border="0" cellspacing="0" cellpadding="0">
+
+<tbody>
+
+<div class="allbar_title">Адрес Вашей электронной почты</div>
+
+<div class="err_yellow name_errors no_display" id="ok_email" style="font-weight:normal;">На <b>оба</b> почтовых ящика придут письма с подтверждением.</div>
+
+<div class="err_red no_display name_errors" id="err_email" style="font-weight:normal;">Неправильный адрес электронной почты.</div>
+
+<tr style="vertical-align: baseline;">
+
+<td style="width:150px;margin:0;color: #888;">Текущий адрес:</td><td style="width:200px;"><input type="text" class="fm_inpst_big" style="width:150px;" value="{email}" disabled /><div class="mgclr"></div></td>
+
+</tr>
+
+<tr style="vertical-align: baseline;">
+
+<td style="width:150px;margin:0;color: #888;">Новый адрес:</td><td style="width:200px;"><input type="text" id="email" class="fm_inpst_big" maxlength="100" style="width:150px;" /><span id="validName"></span><div class="mgclr"></div></td>
+
+</tr>
+
+<tr style="vertical-align: baseline;">
+
+<td style="width:150px;margin:0;color: #888;"></td><td style="width:200px;"><div class="button_div fl_l"><button onClick="settings.savenewmail(); return false" id="saveNewEmail">Сохранить адрес</button></div><div class="mgclr"></div></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+<div class="margin_top_10"></div>
+
+<table border="0" cellspacing="0" cellpadding="0">
+
+<tbody>
+
+
+<div class="allbar_title">Внешний вид страницы</div>
+
+<div class="fm_item_info">Вы можете установить удобный для вас фон персональной страницы. Функция на самом деле очень интересная, потому что наверно каждому будет приятно посидеть в своей атмосфере и своем уюте.</font></div>
+
+<tr style="vertical-align: baseline;">
+
+<td style="width:150px;margin:0;color: #888;"></td><td style="width:200px;"><div class="button_div fl_l"><button onClick="doLoad.data(1); fon.addbox()" >Изменить фон страницы</button></div><div class="mgclr"></div></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
